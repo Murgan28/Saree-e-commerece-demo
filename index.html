@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dheeraa — The Saree Edit</title>
+<meta name="description" content="Dheeraa — a premium aesthetic saree boutique. Discover silk, Kanchipuram, Banarasi, organza, chiffon, cotton, linen and bridal sarees.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root{
+  --ink:#241a1d;--muted:#76676b;--cream:#fbf5ee;--paper:#fffaf5;
+  --wine:#651f34;--rose:#b85c72;--gold:#b68a4a;--line:#eaded3;
+  --shadow:0 22px 60px rgba(60,34,39,.11);
+  --radius:26px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;color:var(--ink);background:var(--cream);overflow-x:hidden}
+h1,h2,h3,h4,.serif{font-family:"Cormorant Garamond",serif}
+button,input,select{font:inherit}
+button{cursor:pointer;border:0}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;object-fit:cover}
+::selection{background:var(--wine);color:white}
+
+/* ambient background */
+body:before,body:after{content:"";position:fixed;z-index:-2;border-radius:50%;filter:blur(70px);opacity:.35;pointer-events:none}
+body:before{width:420px;height:420px;background:#e7b6bd;top:5%;left:-170px}
+body:after{width:460px;height:460px;background:#e8d0a2;right:-200px;top:48%}
+.grain{position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E")}
+
+/* top strip + nav */
+.announcement{background:var(--wine);color:#fff4ed;text-align:center;padding:10px 16px;font-size:12px;letter-spacing:.13em;text-transform:uppercase}
+.nav-wrap{position:sticky;top:0;z-index:40;background:rgba(251,245,238,.86);backdrop-filter:blur(18px);border-bottom:1px solid rgba(234,222,211,.8)}
+.nav{max-width:1380px;margin:auto;height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;gap:22px}
+.logo{font-family:"Cormorant Garamond";font-size:34px;font-weight:700;letter-spacing:.03em;color:var(--wine);white-space:nowrap}
+.logo span{font-size:11px;display:block;text-align:center;font-family:"DM Sans";letter-spacing:.35em;margin-top:-5px;color:var(--gold)}
+.navlinks{display:flex;gap:28px;align-items:center;font-size:13px}
+.navlinks a{position:relative}
+.navlinks a:after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:1px;background:var(--wine);transition:.3s}
+.navlinks a:hover:after{width:100%}
+.actions{display:flex;gap:9px}
+.iconbtn{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:#fff8f2;display:grid;place-items:center;position:relative;transition:.25s}
+.iconbtn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.count{position:absolute;right:-2px;top:-3px;background:var(--wine);color:#fff;width:18px;height:18px;border-radius:50%;font-size:10px;display:grid;place-items:center}
+.menu{display:none}
+
+/* hero */
+.hero{max-width:1380px;margin:0 auto;padding:24px 28px 70px}
+.hero-card{min-height:680px;border-radius:38px;overflow:hidden;position:relative;background:
+linear-gradient(90deg,rgba(36,20,26,.74),rgba(36,20,26,.20) 57%,rgba(36,20,26,.06)),
+url("https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1800&q=90") center/cover}
+.hero-content{position:absolute;left:7%;top:50%;transform:translateY(-50%);max-width:590px;color:white}
+.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.25em;color:#f4d9af;margin-bottom:18px}
+.hero h1{font-size:clamp(58px,7.2vw,106px);line-height:.84;font-weight:500}
+.hero h1 em{color:#f0caa4;font-style:normal}
+.hero p{font-size:16px;line-height:1.8;max-width:490px;margin:25px 0 30px;color:#f8eee9}
+.cta{display:inline-flex;align-items:center;gap:12px;background:#fff9f2;color:var(--wine);padding:15px 24px;border-radius:999px;font-weight:700;font-size:13px;transition:.25s}
+.cta:hover{transform:translateY(-3px);box-shadow:0 16px 40px #0003}
+.hero-note{position:absolute;right:30px;bottom:30px;background:#fff8f0dd;backdrop-filter:blur(12px);padding:15px 18px;border-radius:18px;color:var(--ink);font-size:12px}
+.hero-note strong{display:block;font-family:"Cormorant Garamond";font-size:21px}
+
+/* sections */
+.section{max-width:1380px;margin:auto;padding:70px 28px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:30px}
+.kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.section h2{font-size:48px;font-weight:600;line-height:1}
+.section-intro{color:var(--muted);max-width:530px;line-height:1.7;font-size:14px}
+.textlink{color:var(--wine);font-size:13px;font-weight:700;border-bottom:1px solid var(--wine);padding-bottom:5px}
+
+/* categories */
+.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:13px}
+.cat{height:190px;border-radius:24px;overflow:hidden;position:relative;isolation:isolate}
+.cat:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,#1e1012c9)}
+.cat img{height:100%;transition:.5s}
+.cat:hover img{transform:scale(1.08)}
+.cat div{position:absolute;z-index:2;left:18px;bottom:17px;color:white}
+.cat strong{display:block;font-family:"Cormorant Garamond";font-size:24px;font-weight:600}
+.cat small{opacity:.8}
+
+/* promo */
+.promo{max-width:1380px;margin:0 auto;padding:0 28px 70px}
+.promo-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}
+.promo-card{border-radius:30px;min-height:300px;padding:38px;position:relative;overflow:hidden;background:#ead7c9}
+.promo-card.dark{background:#421d2c;color:#fff4ec}
+.promo-card h3{font-size:46px;max-width:480px;line-height:.95}
+.promo-card p{margin:15px 0;max-width:400px;line-height:1.6;color:inherit;opacity:.75}
+.promo-card img{position:absolute;right:0;top:0;width:52%;height:100%;object-fit:cover;mask-image:linear-gradient(to right,transparent,#000 22%)}
+.promo-card .mini{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+
+/* products */
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.chip{padding:11px 16px;border:1px solid var(--line);border-radius:999px;background:#fffaf6;color:#6f5b60;font-size:12px;transition:.2s}
+.chip.active,.chip:hover{background:var(--wine);color:white;border-color:var(--wine)}
+.searchbox{margin-left:auto;display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:#fffaf6;padding:0 14px;min-width:230px}
+.searchbox input{border:0;outline:0;background:transparent;padding:11px;width:100%;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.product{background:#fffaf6;border:1px solid #eee1d6;border-radius:24px;overflow:hidden;position:relative;transition:.3s}
+.product:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.pic{height:390px;position:relative;overflow:hidden;background:#eee}
+.pic img{height:100%;transition:.55s}
+.product:hover .pic img{transform:scale(1.045)}
+.badge{position:absolute;left:13px;top:13px;background:#fff9f2e8;backdrop-filter:blur(8px);padding:7px 10px;border-radius:999px;font-size:10px;color:var(--wine);font-weight:700;z-index:2}
+.wish{position:absolute;right:13px;top:13px;width:38px;height:38px;border-radius:50%;background:#fff9f2e8;z-index:2;display:grid;place-items:center;font-size:18px;transition:.2s}
+.wish.on{background:var(--wine);color:white}
+.product-info{padding:17px 17px 18px}
+.product-info .type{font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:var(--gold)}
+.product-info h3{font-size:24px;font-weight:600;margin:4px 0}
+.stars{font-size:11px;color:#bd8b45;margin:5px 0}
+.price{display:flex;gap:9px;align-items:center}
+.price strong{font-size:15px}
+.old{text-decoration:line-through;color:#a99699;font-size:12px}
+.add{width:100%;margin-top:12px;padding:11px;border-radius:12px;background:#f0e5dc;color:var(--wine);font-weight:700;font-size:12px;transition:.2s}
+.add:hover{background:var(--wine);color:#fff}
+
+/* story */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:stretch}
+.story-img{min-height:540px;border-radius:30px;overflow:hidden}
+.story-img img{height:100%}
+.story-copy{background:#f1e5da;border-radius:30px;padding:60px;display:flex;flex-direction:column;justify-content:center}
+.story-copy h2{font-size:57px;line-height:.9;margin-bottom:20px}
+.story-copy p{line-height:1.85;color:var(--muted);font-size:14px}
+.points{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+.point strong{font-family:"Cormorant Garamond";font-size:23px}
+.point p{font-size:12px;line-height:1.5;margin-top:4px}
+
+/* reviews */
+.review-row{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.review{background:#fffaf6;border:1px solid var(--line);border-radius:24px;padding:28px}
+.review .stars{font-size:14px}
+.review p{font-family:"Cormorant Garamond";font-size:24px;line-height:1.25;margin:12px 0 20px}
+.avatar{display:flex;align-items:center;gap:10px;font-size:12px}
+.avatar span{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#ead3d5;color:var(--wine);font-family:"Cormorant Garamond";font-size:19px}
+
+/* newsletter */
+.newsletter{max-width:1380px;margin:10px auto 70px;padding:0 28px}
+.news-inner{border-radius:32px;background:linear-gradient(120deg,#4c1d30,#8e4c5d);color:#fff6ef;padding:60px;display:flex;justify-content:space-between;gap:30px;align-items:center;overflow:hidden;position:relative}
+.news-inner:before{content:"S";font-family:"Cormorant Garamond";font-size:400px;position:absolute;right:5%;top:-160px;opacity:.06}
+.news-inner h2{font-size:50px;line-height:.9}
+.news-inner p{max-width:450px;margin-top:12px;color:#f3dfe0;line-height:1.6;font-size:13px}
+.email{display:flex;background:#fff9f3;border-radius:999px;padding:5px;min-width:400px;z-index:1}
+.email input{border:0;outline:0;background:transparent;padding:13px 17px;flex:1;min-width:0}
+.email button{background:var(--wine);color:white;border-radius:999px;padding:0 20px;font-weight:700}
+
+/* footer */
+footer{background:#21171a;color:#eadbd4;padding:60px 28px 25px}
+.footer-grid{max-width:1324px;margin:auto;display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:45px}
+.footer-logo{font-family:"Cormorant Garamond";font-size:40px;color:#fff0e7}
+footer p{font-size:12px;line-height:1.8;color:#a99598;max-width:300px;margin-top:10px}
+footer h4{font-family:"DM Sans";font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:#fff;margin-bottom:16px}
+footer li{list-style:none;font-size:12px;margin:11px 0;color:#bba8a9}
+footer li:hover{color:white}
+.copyright{max-width:1324px;margin:45px auto 0;padding-top:20px;border-top:1px solid #ffffff15;font-size:10px;color:#8e7a7e;display:flex;justify-content:space-between}
+
+/* modal/cart */
+.overlay{position:fixed;inset:0;background:#170c10aa;backdrop-filter:blur(7px);z-index:100;display:none}
+.overlay.show{display:block}
+.modal{position:fixed;z-index:101;left:50%;top:50%;transform:translate(-50%,-47%) scale(.96);width:min(940px,92vw);max-height:88vh;overflow:auto;background:#fffaf6;border-radius:30px;display:none;box-shadow:0 35px 100px #0004}
+.modal.show{display:block;animation:pop .3s forwards}
+@keyframes pop{to{transform:translate(-50%,-50%) scale(1)}}
+.close{position:absolute;right:17px;top:17px;width:40px;height:40px;border-radius:50%;background:#f5e9e0;z-index:3}
+.quick{display:grid;grid-template-columns:1fr 1fr}
+.quick-img{min-height:550px}
+.quick-img img{height:100%}
+.quick-copy{padding:48px 42px}
+.quick-copy h2{font-size:50px;line-height:.9;margin:10px 0}
+.quick-copy .desc{color:var(--muted);font-size:13px;line-height:1.8;margin:20px 0}
+.bigprice{font-family:"Cormorant Garamond";font-size:32px;color:var(--wine)}
+.select{margin:20px 0}
+.select label{font-size:11px;display:block;margin-bottom:7px;color:var(--muted)}
+.select select{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;background:white}
+.primary{width:100%;padding:14px;border-radius:13px;background:var(--wine);color:white;font-weight:700}
+
+.drawer{position:fixed;right:0;top:0;height:100%;width:min(440px,94vw);z-index:101;background:#fffaf6;transform:translateX(105%);transition:.35s;box-shadow:-20px 0 60px #0002;padding:25px;display:flex;flex-direction:column}
+.drawer.show{transform:translateX(0)}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.drawer h2{font-size:34px}
+.cart-items{flex:1;overflow:auto;padding:15px 0}
+.cart-item{display:grid;grid-template-columns:75px 1fr auto;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+.cart-item img{height:88px;border-radius:12px}
+.cart-item h4{font-size:18px}
+.cart-item p{font-size:11px;color:var(--muted);margin:5px 0}
+.qty{display:flex;gap:7px;align-items:center}
+.qty button{width:24px;height:24px;border-radius:50%;background:#eee1d8}
+.cart-foot{border-top:1px solid var(--line);padding-top:18px}
+.total{display:flex;justify-content:space-between;font-family:"Cormorant Garamond";font-size:27px;margin-bottom:14px}
+
+/* toast */
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);background:#25171c;color:#fff;padding:13px 20px;border-radius:999px;z-index:200;font-size:12px;opacity:0;pointer-events:none;transition:.3s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.empty{text-align:center;color:var(--muted);padding:50px 10px;font-size:13px}
+.no-results{grid-column:1/-1;text-align:center;padding:60px;color:var(--muted)}
+
+
+/* ===== PREMIUM 2.0 LUXURY LAYER ===== */
+:root{
+ --wine:#6d2c68;--wine2:#b64d86;--blush:#ead0e2;--champ:#c59b58;
+ --ivory:#fff8fc;--ink:#30232e;--muted:#776b77;
+}
+body{background:
+ radial-gradient(circle at 8% 18%,rgba(212,151,164,.18),transparent 24%),
+ radial-gradient(circle at 90% 40%,rgba(225,170,205,.16),transparent 25%),
+ #fbf4fa}
+.nav-wrap{box-shadow:0 8px 30px rgba(80,36,47,.06)}
+.hero-card{box-shadow:0 28px 80px rgba(66,29,40,.18)}
+.hero-card:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 45%,rgba(255,255,255,.10),transparent 62%);transform:translateX(-100%);animation:sheen 7s infinite}
+@keyframes sheen{0%,60%{transform:translateX(-100%)}75%,100%{transform:translateX(100%)}}
+.section h2{letter-spacing:-.02em}
+.cat{box-shadow:0 12px 30px rgba(66,34,43,.09)}
+.product{box-shadow:0 8px 25px rgba(65,36,42,.045)}
+.product .pic:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.16),transparent 60%);transform:translateX(-120%);transition:.7s}
+.product:hover .pic:after{transform:translateX(120%)}
+.add{position:relative;overflow:hidden}
+.add:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,#fff5,transparent);transform:translateX(-120%);transition:.45s}
+.add:hover:after{transform:translateX(120%)}
+.product-info h3{transition:.2s}
+.product:hover .product-info h3{color:var(--wine2)}
+.quick-copy .feature-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
+.feature-list div{background:#f7eee7;border-radius:13px;padding:11px}
+.feature-list b{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)}
+.feature-list span{font-family:"Cormorant Garamond";font-size:17px}
+.detail-price{display:flex;align-items:center;gap:12px;margin:12px 0}
+.detail-price .bigprice{font-size:34px}
+.save-pill{font-size:10px;background:#ead8c4;color:#735225;padding:5px 8px;border-radius:999px;font-weight:700}
+.cart-foot small{display:block;color:var(--muted);font-size:10px;margin:7px 0 14px;text-align:center}
+
+/* checkout demo */
+.checkout-modal{position:fixed;z-index:120;left:50%;top:50%;transform:translate(-50%,-50%);width:min(760px,94vw);max-height:90vh;overflow:auto;background:#fff;border-radius:30px;display:none;box-shadow:0 35px 100px #0005}
+.checkout-modal.show{display:block;animation:checkoutIn .3s forwards}
+@keyframes checkoutIn{from{opacity:0;transform:translate(-50%,-47%) scale(.97)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+.checkout-head{padding:25px 28px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
+.paytm-brand{font-family:Arial,sans-serif;font-weight:800;font-size:27px;color:#172b85}
+.paytm-brand span{color:#00a9e8}
+.demo-tag{font-size:9px;letter-spacing:.15em;text-transform:uppercase;background:#fff2d9;padding:7px 10px;border-radius:999px;color:#8a6329}
+.checkout-body{padding:28px}
+.progress{display:flex;gap:8px;margin-bottom:25px}
+.progress span{height:4px;border-radius:9px;background:#ddd;flex:1}
+.progress span.on{background:#00a9e8}
+.checkout-summary{background:#f8f8fb;border-radius:18px;padding:18px;margin-bottom:20px}
+.checkout-summary .line{display:flex;justify-content:space-between;font-size:12px;margin:9px 0;color:#555}
+.checkout-summary .grand{font-size:18px;font-weight:800;color:#171717;border-top:1px solid #ddd;padding-top:13px}
+.pay-methods{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.pay-method{border:1px solid #ddd;border-radius:13px;padding:14px;background:#fff;text-align:center;font-size:12px}
+.pay-method.active{border-color:#00a9e8;box-shadow:0 0 0 2px #00a9e81c}
+.demo-form{display:grid;gap:12px}
+.demo-form input,.demo-form select{width:100%;padding:13px 14px;border:1px solid #ddd;border-radius:11px;outline:0}
+.demo-form input:focus{border-color:#00a9e8}
+.pay-btn{background:#00a9e8;color:white;width:100%;padding:15px;border-radius:12px;font-weight:800;margin-top:5px}
+.demo-note{text-align:center;font-size:10px;color:#777;margin-top:10px}
+.success-screen{text-align:center;padding:45px 25px}
+.success-icon{width:75px;height:75px;border-radius:50%;display:grid;place-items:center;background:#dff7ec;color:#15905b;font-size:35px;margin:0 auto 20px}
+.success-screen h2{font-size:44px}
+.order-id{font-family:monospace;background:#f4f4f4;padding:10px 14px;border-radius:10px;display:inline-block;margin:12px 0;font-size:12px}
+.continue-btn{background:var(--wine);color:#fff;border-radius:12px;padding:13px 25px;font-weight:700}
+
+@media(max-width:600px){
+ .checkout-body{padding:20px}.pay-methods{grid-template-columns:1fr 1fr}.quick-copy .feature-list{gap:7px}
+}
+
+
+/* DHEERAA EDITORIAL GALLERY */
+.visual-wall{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.visual-tile{height:330px;border-radius:25px;overflow:hidden;position:relative;background:#e9dfd5}
+.visual-tile:nth-child(2),.visual-tile:nth-child(6){margin-top:35px}
+.visual-tile img{height:100%;transition:.6s}
+.visual-tile:hover img{transform:scale(1.07)}
+.visual-tile:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(25,31,27,.68))}
+.visual-caption{position:absolute;z-index:2;left:19px;bottom:17px;color:white}
+.visual-caption small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.18em;opacity:.8}
+.visual-caption strong{font-family:"Cormorant Garamond";font-size:24px}
+.quick-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.quick-gallery button{height:74px;border-radius:10px;overflow:hidden;border:2px solid transparent;background:#eee}
+.quick-gallery button.active{border-color:var(--wine)}
+.quick-gallery img{height:100%}
+.gallery-label{font-size:10px;text-transform:uppercase;letter-spacing:.17em;color:var(--gold);margin-top:20px}
+.service-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:25px}
+.service{background:#fffaf5;border:1px solid var(--line);border-radius:18px;padding:20px}
+.service-icon{font-size:23px;margin-bottom:9px}
+.service strong{font-family:"Cormorant Garamond";font-size:21px}
+.service p{font-size:11px;color:var(--muted);line-height:1.5;margin-top:4px}
+@media(max-width:800px){.visual-wall{grid-template-columns:repeat(2,1fr)}.visual-tile{height:250px}.visual-tile:nth-child(2),.visual-tile:nth-child(6){margin-top:0}.service-strip{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.visual-wall{gap:8px}.visual-tile{height:210px}.service-strip{grid-template-columns:1fr}}
+
+
+/* ===== DHEERAA VIOLET-PINK EDITORIAL SYSTEM ===== */
+body{
+ background:
+ radial-gradient(circle at 5% 10%,rgba(213,143,203,.18),transparent 24%),
+ radial-gradient(circle at 92% 28%,rgba(238,173,209,.18),transparent 25%),
+ radial-gradient(circle at 50% 90%,rgba(184,127,185,.10),transparent 30%),#fbf4fa;
+ transition:background .35s,color .35s
+}
+.nav-wrap{background:rgba(251,244,250,.82)}
+.hero-card{box-shadow:0 30px 90px rgba(109,44,104,.22)}
+.hero-card:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(255,190,229,.25),transparent 25%);pointer-events:none}
+.announcement{background:linear-gradient(90deg,#572054,#9c3d79,#572054)}
+.section h2{color:#352335}
+.kicker,.product-info .type{color:#a34b91}
+.chip.active,.chip:hover,.add:hover,.primary,.continue-btn{background:linear-gradient(135deg,#6d2c68,#b64d86)}
+.textlink{color:#7b326e;border-color:#7b326e}
+.product:hover{box-shadow:0 25px 65px rgba(109,44,104,.14)}
+.promo-card.dark{background:linear-gradient(135deg,#4e214d,#8d3d72)}
+.news-inner{background:linear-gradient(120deg,#542052,#9b3c7a)}
+.logo{color:#6d2c68}
+.logo span{color:#b64d86}
+.iconbtn:hover{border-color:#c68abb}
+.badge{color:#6d2c68}
+.wish.on{background:#8d3d72}
+.quick-copy .feature-list div{background:#f8eaf5}
+.service{background:#fff9fd}
+.cat:after{background:linear-gradient(transparent 35%,rgba(57,21,52,.78))}
+.dark-mode{
+ --wine:#db79c4;--wine2:#f28fcf;--blush:#3c293c;--champ:#d8b16a;
+ --ivory:#1e171f;--ink:#f6eaf5;--muted:#bcaebc;--line:#4a3849;
+ color:#f6eaf5;background:#18131a!important
+}
+.dark-mode .nav-wrap,.dark-mode .product,.dark-mode .review,.dark-mode .service,.dark-mode .searchbox,.dark-mode .chip,.dark-mode .drawer,.dark-mode .modal{background:#241b26;color:#f6eaf5;border-color:#4a3849}
+.dark-mode .section h2,.dark-mode .product-info h3{color:#f6eaf5}
+.dark-mode .promo-card:not(.dark){background:#332334;color:#fff}
+.dark-mode .story-copy{background:#302331;color:#fff}
+.dark-mode .story-copy p,.dark-mode .section-intro{color:#c7b8c7}
+.dark-mode footer{background:#100d12}
+.dark-mode .navlinks a{color:#f5eaf4}
+.dark-mode .searchbox input{color:white}
+.dark-mode .quick-copy{background:#241b26}
+.dark-mode .quick-copy .feature-list div{background:#332334}
+.dark-mode .toast{background:#f6eaf5;color:#291a28}
+.dark-mode .checkout-modal{background:#241b26;color:#fff}
+
+/* fullscreen side menu */
+.side-menu{position:fixed;inset:0;z-index:150;display:none}
+.side-menu.show{display:block}
+.side-backdrop{position:absolute;inset:0;background:#2b102a99;backdrop-filter:blur(10px)}
+.side-panel{position:absolute;left:0;top:0;height:100%;width:min(430px,92vw);background:#fff9fd;box-shadow:20px 0 80px #3b173855;padding:26px;overflow:auto;animation:sideIn .3s ease}
+@keyframes sideIn{from{transform:translateX(-100%)}to{transform:translateX(0)}}
+.side-top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:18px}
+.side-title{font-family:"Cormorant Garamond";font-size:36px;color:var(--wine)}
+.menu-group{padding:22px 0;border-bottom:1px solid var(--line)}
+.menu-group h4{font-family:"DM Sans";font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:#a34b91;margin-bottom:12px}
+.menu-item{width:100%;display:flex;justify-content:space-between;align-items:center;padding:13px 2px;background:transparent;color:inherit;font-size:13px;text-align:left}
+.menu-item:hover{color:#a13f82}
+.menu-item span:last-child{font-size:18px;opacity:.55}
+.menu-pills{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.menu-pill{padding:11px;border:1px solid var(--line);border-radius:12px;background:transparent;text-align:left;font-size:11px}
+.menu-pill:hover{border-color:#b64d86;background:#f9eaf6}
+.settings-row{display:flex;align-items:center;justify-content:space-between;padding:13px 0;font-size:12px}
+.switch{width:42px;height:24px;border-radius:30px;background:#d9ccd8;position:relative}
+.switch:after{content:"";position:absolute;width:18px;height:18px;top:3px;left:3px;border-radius:50%;background:white;transition:.25s}
+.switch.on{background:#9b3c7a}.switch.on:after{left:21px}
+
+/* full image lightbox */
+.lightbox{position:fixed;inset:0;background:#120b14ee;z-index:180;display:none;align-items:center;justify-content:center;padding:30px}
+.lightbox.show{display:flex}
+.lightbox img{max-width:min(900px,92vw);max-height:88vh;width:auto;border-radius:20px;object-fit:contain;box-shadow:0 30px 100px #0008}
+.light-close{position:absolute;right:24px;top:22px;width:46px;height:46px;border-radius:50%;background:#fff;color:#3b1739;font-size:25px}
+.light-caption{position:absolute;bottom:25px;color:white;text-align:center;font-family:"Cormorant Garamond";font-size:24px}
+
+/* full detail screen */
+.detail-screen{position:fixed;inset:0;z-index:170;background:#fff9fd;display:none;overflow:auto}
+.detail-screen.show{display:block;animation:fadeDetail .25s ease}
+@keyframes fadeDetail{from{opacity:0}to{opacity:1}}
+.detail-nav{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff9fddd;backdrop-filter:blur(15px);z-index:3}
+.detail-main{max-width:1300px;margin:auto;padding:45px 30px;display:grid;grid-template-columns:1.05fr .95fr;gap:50px}
+.detail-hero-img{height:680px;border-radius:30px;overflow:hidden;background:#eee}
+.detail-hero-img img{height:100%;cursor:zoom-in}
+.detail-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:10px}
+.detail-thumbs button{height:100px;border:2px solid transparent;border-radius:12px;overflow:hidden}
+.detail-thumbs button.active{border-color:var(--wine)}
+.detail-thumbs img{height:100%}
+.detail-content{padding:25px 0}
+.detail-content h1{font-size:64px;line-height:.88;margin:10px 0}
+.detail-content .lead{color:var(--muted);line-height:1.8;font-size:14px;max-width:560px}
+.detail-specs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:25px 0}
+.spec{border:1px solid var(--line);padding:16px;border-radius:15px;background:#fff}
+.spec small{display:block;color:#a34b91;font-size:9px;text-transform:uppercase;letter-spacing:.15em}
+.spec strong{font-family:"Cormorant Garamond";font-size:21px}
+.detail-actions{display:flex;gap:10px;margin-top:20px}
+.detail-actions button{flex:1;padding:15px;border-radius:13px;font-weight:700}
+@media(max-width:800px){.detail-main{grid-template-columns:1fr;padding:25px 16px;gap:20px}.detail-hero-img{height:500px}.detail-content h1{font-size:50px}.detail-nav{padding:0 16px}}
+
+
+/* ===== FINAL POLISH: CLEAN TOUCH + GLOW INTERACTIONS ===== */
+*{-webkit-tap-highlight-color:transparent}
+button,a,input,select{outline:none!important}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #d875bb!important;outline-offset:3px}
+button,a{-webkit-user-select:none;user-select:none}
+button{appearance:none}
+.product,.cat,.service,.review,.promo-card{will-change:transform}
+.cta,.primary,.add,.continue-btn,.chip,.iconbtn,.menu-pill,.menu-item,.pay-method{
+ transition:transform .22s ease,box-shadow .22s ease,background .22s ease,border-color .22s ease,color .22s ease
+}
+.cta:hover,.primary:hover,.continue-btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(182,77,134,.28)}
+.cta:active,.primary:active,.add:active,.chip:active,.iconbtn:active,.menu-pill:active{transform:scale(.96)}
+.add{box-shadow:0 5px 18px rgba(109,44,104,.06)}
+.add:hover{box-shadow:0 10px 25px rgba(182,77,134,.22)}
+.iconbtn:hover{box-shadow:0 8px 22px rgba(182,77,134,.18)}
+.chip:hover{box-shadow:0 7px 18px rgba(182,77,134,.13)}
+.glow-label{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;background:linear-gradient(90deg,#f7d9ef,#fce9f5);color:#873878;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 0 0 rgba(205,94,174,0);animation:softGlow 2.8s infinite}
+@keyframes softGlow{50%{box-shadow:0 0 18px rgba(205,94,174,.22)}}
+.product .pic{background:linear-gradient(135deg,#eee0e9,#e9d9e3)}
+.product .pic img{background:#eee0e9}
+.image-loader{position:absolute;inset:0;display:grid;place-items:center;color:#9a7e93;font-size:11px;z-index:0}
+.product .pic img{position:relative;z-index:1}
+.quick-img,.detail-hero-img{background:linear-gradient(135deg,#eee0e9,#e9d9e3)}
+.toast{box-shadow:0 12px 40px rgba(20,10,20,.25)}
+.reduce-motion *, .reduce-motion *:before,.reduce-motion *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+
+/* conversion features */
+.quiz-box{background:linear-gradient(135deg,#fff8fd,#f5e5f2);border:1px solid #ead4e6;border-radius:30px;padding:38px;position:relative;overflow:hidden}
+.quiz-box:after{content:"✦";position:absolute;right:30px;top:-40px;font-family:"Cormorant Garamond";font-size:180px;color:#b64d86;opacity:.07}
+.quiz-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.quiz-box h2{font-size:48px;line-height:.9;margin-bottom:12px}
+.quiz-box p{font-size:13px;color:var(--muted);line-height:1.7;max-width:510px}
+.quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:18px}
+.quiz-option{padding:13px;border:1px solid #e5d1e0;border-radius:13px;background:#fff;text-align:left;font-size:11px;color:#5d4859}
+.quiz-option:hover{border-color:#b64d86;transform:translateY(-2px);box-shadow:0 8px 22px #b64d8618}
+.quiz-result{display:none;margin-top:18px;background:#fff;border-radius:18px;padding:18px;border:1px solid #ead4e6}
+.quiz-result.show{display:block;animation:fadeDetail .3s}
+.insights{display:none;position:fixed;inset:0;z-index:165;background:#fff9fd;overflow:auto}
+.insights.show{display:block}
+.insight-head{position:sticky;top:0;z-index:3;padding:20px 30px;background:#fff9fddd;backdrop-filter:blur(15px);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.insight-wrap{max-width:1250px;margin:auto;padding:35px 30px}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px}
+.kpi small{font-size:9px;text-transform:uppercase;letter-spacing:.16em;color:#a34b91}
+.kpi strong{display:block;font-family:"Cormorant Garamond";font-size:35px;margin:6px 0}
+.kpi span{font-size:10px;color:#748}
+.insight-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:15px;margin-top:15px}
+.insight-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px}
+.bar{height:12px;border-radius:20px;background:#f0e5ee;overflow:hidden;margin:9px 0 15px}
+.bar i{display:block;height:100%;border-radius:20px;background:linear-gradient(90deg,#6d2c68,#d76bb0)}
+.insight-list{display:grid;gap:10px}
+.insight-row{display:flex;justify-content:space-between;font-size:12px;padding-bottom:10px;border-bottom:1px solid #eee}
+@media(max-width:800px){.quiz-grid,.insight-grid{grid-template-columns:1fr}.kpi-grid{grid-template-columns:1fr 1fr}.quiz-box{padding:27px}}
+
+/* responsive */
+@media(max-width:1050px){
+ .navlinks{display:none}.menu{display:grid}.grid{grid-template-columns:repeat(3,1fr)}
+ .categories{grid-template-columns:repeat(3,1fr)}.hero-card{min-height:600px}
+}
+@media(max-width:760px){
+ .nav{height:68px;padding:0 16px}.logo{font-size:29px}.actions .search-hide{display:none}
+ .hero{padding:14px 14px 40px}.hero-card{min-height:650px;border-radius:26px;background-position:60% center}
+ .hero-content{left:7%;right:7%}.hero h1{font-size:64px}
+ .section{padding:50px 16px}.section h2{font-size:40px}.section-head{display:block}.section-head .textlink{display:inline-block;margin-top:14px}
+ .categories{grid-template-columns:repeat(2,1fr)}.cat{height:160px}
+ .promo{padding:0 16px 50px}.promo-grid{grid-template-columns:1fr}.promo-card{min-height:330px}
+ .promo-card img{width:60%}.grid{grid-template-columns:repeat(2,1fr);gap:11px}.pic{height:285px}
+ .searchbox{width:100%;margin-left:0}.toolbar{gap:7px}
+ .story{grid-template-columns:1fr}.story-img{min-height:420px}.story-copy{padding:40px 27px}.story-copy h2{font-size:48px}
+ .review-row{grid-template-columns:1fr}.newsletter{padding:0 16px}.news-inner{padding:40px 25px;display:block}.news-inner h2{font-size:45px}.email{min-width:0;margin-top:24px}
+ .footer-grid{grid-template-columns:1fr 1fr;gap:28px}.footer-grid>div:first-child{grid-column:1/-1}.copyright{display:block}.copyright span{display:block;margin-top:8px}
+ .quick{grid-template-columns:1fr}.quick-img{min-height:350px}.quick-copy{padding:35px 25px}.quick-copy h2{font-size:42px}
+}
+@media(max-width:430px){
+ .actions .iconbtn{width:38px;height:38px}.categories{gap:9px}.cat{height:145px}.cat div{left:13px;bottom:12px}.cat strong{font-size:20px}
+ .grid{grid-template-columns:1fr 1fr}.pic{height:245px}.product-info{padding:13px}.product-info h3{font-size:20px}.hero-note{display:none}
+}
+
+/* ===== DHEERAA 3.0 — LUXURY STOREFRONT UPGRADE ===== */
+:root{
+  --page:#fbf4fa; --surface:#fff9fd; --surface2:#f7edf5; --text:#30232e;
+  --muted2:#776b77; --border:#ead4e6; --accent:#6d2c68; --accent2:#b64d86;
+  --gold2:#c59b58; --shadow2:0 28px 80px rgba(74,28,65,.14);
+  --touch:rgba(182,77,134,.18);
+}
+body{
+  color:var(--text);
+  background:
+    radial-gradient(circle at 5% 8%,rgba(213,143,203,.20),transparent 25%),
+    radial-gradient(circle at 94% 30%,rgba(238,173,209,.20),transparent 27%),
+    radial-gradient(circle at 50% 92%,rgba(184,127,185,.11),transparent 32%),var(--page);
+}
+.nav{max-width:1480px;height:86px;padding:0 34px}
+.logo{font-size:38px}
+.navlinks{gap:34px;font-size:14px}
+.actions{gap:10px}
+.iconbtn{width:46px;height:46px}
+.owner-btn{
+  display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:999px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:11px;
+  font-weight:800;letter-spacing:.05em;box-shadow:0 10px 28px rgba(182,77,134,.20);
+}
+.owner-btn:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(182,77,134,.30)}
+.hero{max-width:1480px;padding:28px 34px 86px}
+.hero-card{min-height:760px;border-radius:42px}
+.section{max-width:1480px;padding:88px 34px}
+.section h2{font-size:56px}
+.section-intro{font-size:15px;max-width:600px}
+.categories{gap:16px}
+.cat{height:225px;border-radius:28px}
+.cat strong{font-size:27px}
+.promo{max-width:1480px;padding:0 34px 86px}
+.promo-card{min-height:360px;border-radius:34px;padding:46px}
+.promo-card h3{font-size:52px}
+.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.product{border-radius:30px}
+.product:hover{transform:translateY(-10px) scale(1.008)}
+.pic{height:455px}
+.product-info{padding:21px 20px 22px}
+.product-info h3{font-size:27px}
+.add{padding:13px;border-radius:14px}
+.product .pic:before{
+  content:"Quick view • Tap to explore";
+  position:absolute;left:14px;bottom:14px;z-index:4;
+  padding:8px 11px;border-radius:999px;background:rgba(25,12,24,.72);color:#fff;
+  font-size:9px;letter-spacing:.08em;opacity:0;transform:translateY(8px);
+  transition:.25s;backdrop-filter:blur(8px);pointer-events:none
+}
+.product:hover .pic:before{opacity:1;transform:translateY(0)}
+.product .pic:after{z-index:3}
+.story-copy{padding:72px}
+.review{min-height:230px}
+.news-inner{padding:72px}
+.service-strip{gap:16px}
+.service{padding:25px;border-radius:22px}
+.community{
+  max-width:1480px;margin:0 auto;padding:0 34px 88px;
+}
+.community-inner{
+  border-radius:38px;padding:52px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#35142f,#7d2f68 55%,#b64d86);color:#fff;
+  box-shadow:var(--shadow2);
+}
+.community-inner:before{
+  content:"✦";position:absolute;right:3%;top:-80px;font:400 330px "Cormorant Garamond";
+  opacity:.08;
+}
+.community-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:35px;align-items:center}
+.community h2{font-size:56px;line-height:.9;margin:8px 0 15px}
+.community p{color:#f5dce9;line-height:1.7;font-size:14px;max-width:600px}
+.community-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:23px}
+.community-btn{padding:14px 19px;border-radius:999px;font-weight:800;font-size:12px}
+.community-btn.primary{background:#fff;color:#6d2c68}
+.community-btn.ghost{background:#ffffff16;color:#fff;border:1px solid #ffffff35}
+.community-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.community-stat{padding:22px;border-radius:22px;background:#ffffff12;border:1px solid #ffffff20;backdrop-filter:blur(10px)}
+.community-stat strong{display:block;font:600 34px "Cormorant Garamond"}
+.community-stat span{font-size:10px;color:#f0d7e5}
+.feature-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.feature-card{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:22px;box-shadow:0 10px 35px rgba(74,28,65,.06)}
+.feature-card b{display:block;margin:7px 0 4px}
+.feature-card span{font-size:11px;color:var(--muted2);line-height:1.5}
+.tap-ripple{
+  position:fixed;z-index:9999;width:18px;height:18px;border-radius:50%;
+  border:2px solid var(--accent2);pointer-events:none;transform:translate(-50%,-50%) scale(.5);
+  animation:ripple .55s ease-out forwards;
+}
+@keyframes ripple{to{transform:translate(-50%,-50%) scale(4);opacity:0}}
+.touch-pop{animation:touchPop .28s ease}
+@keyframes touchPop{50%{transform:scale(.96)}}
+.dark-mode{
+  --page:#151017;--surface:#241b26;--surface2:#302230;--text:#f8edf7;--muted2:#c8b7c8;
+  --border:#4c3a4c;--accent:#e17ac6;--accent2:#f39bd3;--gold2:#e1bd79;
+  background:
+    radial-gradient(circle at 5% 8%,rgba(138,53,121,.22),transparent 25%),
+    radial-gradient(circle at 94% 30%,rgba(115,43,100,.20),transparent 27%),#151017!important;
+  color:var(--text);
+}
+.dark-mode .nav-wrap{background:rgba(25,18,28,.88);border-color:#443447}
+.dark-mode .logo,.dark-mode .navlinks a,.dark-mode .section h2,.dark-mode .product-info h3,
+.dark-mode .drawer h2,.dark-mode .quick-copy h2,.dark-mode .detail-content h1{color:#fff4fc}
+.dark-mode .product,.dark-mode .review,.dark-mode .service,.dark-mode .feature-card,
+.dark-mode .searchbox,.dark-mode .chip,.dark-mode .drawer,.dark-mode .modal,
+.dark-mode .quick-copy,.dark-mode .checkout-modal,.dark-mode .quiz-box,
+.dark-mode .quiz-result,.dark-mode .kpi,.dark-mode .insight-card,.dark-mode .side-panel{
+  background:var(--surface);color:var(--text);border-color:var(--border);
+}
+.dark-mode .product-info .type,.dark-mode .kicker{color:#e19bd0}
+.dark-mode .section-intro,.dark-mode .story-copy p,.dark-mode .quiz-box p,.dark-mode .review p{color:#c8b7c8}
+.dark-mode .story-copy{background:#302230;color:#fff}
+.dark-mode .feature-list div,.dark-mode .spec,.dark-mode .select select,
+.dark-mode .demo-form input,.dark-mode .demo-form select{background:#302230;color:#fff;border-color:#514052}
+.dark-mode .feature-list b,.dark-mode .spec small{color:#e19bd0}
+.dark-mode .select select option,.dark-mode .demo-form input::placeholder{color:#c8b7c8}
+.dark-mode .add{background:#3a293a;color:#ffdff5;border-color:#554054}
+.dark-mode .add:hover{background:linear-gradient(135deg,#6d2c68,#b64d86);color:#fff}
+.dark-mode .close,.dark-mode .iconbtn,.dark-mode .wish{background:#302230;color:#fff;border-color:#514052}
+.dark-mode .searchbox input{color:#fff}
+.dark-mode .searchbox input::placeholder{color:#a996aa}
+.dark-mode .checkout-summary,.dark-mode .pay-method{background:#302230;color:#fff;border-color:#514052}
+.dark-mode .pay-method.active{border-color:#5ac5ef}
+.dark-mode .success-screen{color:#fff}
+.dark-mode .success-screen p,.dark-mode .demo-note{color:#c8b7c8!important}
+.dark-mode .insight-head,.dark-mode .detail-nav{background:#201720ee;color:#fff;border-color:#443447}
+.dark-mode .detail-screen,.dark-mode .insights{background:#151017;color:#fff}
+.dark-mode .bar{background:#403342}
+.dark-mode .insight-row{border-color:#443447}
+.dark-mode .menu-pill{color:#fff;border-color:#514052}
+.dark-mode .menu-pill:hover{background:#3a293a}
+.dark-mode .settings-row{color:#f8edf7}
+.dark-mode .large-text{font-size:110%}
+.owner-dash-fab{
+  position:fixed;right:22px;bottom:22px;z-index:90;padding:13px 17px;border-radius:999px;
+  background:linear-gradient(135deg,#241024,#b64d86);color:#fff;font-size:11px;font-weight:800;
+  box-shadow:0 16px 40px rgba(74,28,65,.30);display:flex;gap:8px;align-items:center
+}
+.owner-dash-fab:hover{transform:translateY(-4px)}
+@media(max-width:1050px){
+ .owner-btn{display:none}.grid{grid-template-columns:repeat(3,1fr)}
+ .pic{height:390px}.community-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+ .nav{height:72px;padding:0 14px}.logo{font-size:31px}.actions .iconbtn{width:40px;height:40px}
+ .hero{padding:16px 14px 45px}.hero-card{min-height:650px;border-radius:28px}
+ .section{padding:58px 16px}.section h2{font-size:45px}
+ .promo{padding:0 16px 55px}.promo-card{padding:34px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.pic{height:315px}
+ .product-info{padding:14px}.product-info h3{font-size:21px}
+ .community{padding:0 16px 58px}.community-inner{padding:34px 25px;border-radius:28px}
+ .community h2{font-size:46px}.feature-strip{grid-template-columns:1fr 1fr}
+ .owner-dash-fab{right:14px;bottom:14px}
+}
+@media(max-width:430px){
+ .grid{gap:9px}.pic{height:260px}.product-info h3{font-size:19px}
+ .feature-strip{grid-template-columns:1fr}.community-stats{grid-template-columns:1fr 1fr}
+ .owner-dash-fab{font-size:10px;padding:11px 13px}
+}
+
+
+/* ===== FINAL DHEERAA LUXURY COMMERCE LAYER ===== */
+.logo{
+  text-shadow:0 0 8px rgba(182,77,134,.18);
+  animation:dheeraaGlow 3s ease-in-out infinite;
+}
+.logo:hover{text-shadow:0 0 10px rgba(182,77,134,.35),0 0 28px rgba(182,77,134,.25)}
+@keyframes dheeraaGlow{
+  0%,100%{filter:drop-shadow(0 0 0 rgba(182,77,134,0))}
+  50%{filter:drop-shadow(0 0 9px rgba(182,77,134,.42))}
+}
+.hero-card{isolation:isolate}
+.hero-marketing{
+  position:absolute;right:4.5%;top:8%;z-index:3;width:255px;
+  display:grid;gap:10px;transform:rotate(3deg);
+}
+.hero-mini{
+  border:1px solid rgba(255,255,255,.24);border-radius:22px;overflow:hidden;
+  background:#fff2;backdrop-filter:blur(14px);box-shadow:0 22px 50px #0004;
+}
+.hero-mini img{height:145px;object-fit:cover}
+.hero-mini div{padding:12px 14px;color:#fff}
+.hero-mini b{display:block;font:600 21px "Cormorant Garamond"}
+.hero-mini span{font-size:9px;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+.hero-mini:nth-child(2){width:190px;margin-left:auto;transform:translateY(-4px) rotate(-5deg)}
+.hero-mini:nth-child(2) img{height:105px}
+.buy-guide{
+  background:linear-gradient(135deg,var(--surface),var(--surface2));
+  border:1px solid var(--border);border-radius:32px;padding:34px;
+  box-shadow:0 18px 55px rgba(74,28,65,.08);
+}
+.buy-guide-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:28px;align-items:center}
+.buy-guide h2{font:600 46px/0.92 "Cormorant Garamond";margin:7px 0 12px}
+.buy-guide p{font-size:13px;color:var(--muted2);line-height:1.7}
+.guide-options{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.guide-card{
+  padding:17px;border:1px solid var(--border);border-radius:18px;background:var(--surface);
+  text-align:left;transition:.25s;min-height:120px;
+}
+.guide-card:hover{transform:translateY(-5px);box-shadow:0 14px 32px rgba(182,77,134,.14);border-color:#c98abb}
+.guide-card b{display:block;font:600 23px "Cormorant Garamond";margin:7px 0}
+.guide-card span{font-size:10px;color:var(--muted2);line-height:1.45}
+.shipping-bar{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px;
+}
+.shipping-pill{
+  padding:15px;border:1px solid var(--border);border-radius:16px;background:var(--surface);
+  font-size:11px;text-align:center;color:var(--text)
+}
+.shipping-pill strong{display:block;font-size:12px;margin-bottom:3px}
+.wishlist-modal{
+ position:fixed;inset:0;z-index:160;background:var(--page);display:none;overflow:auto;
+}
+.wishlist-modal.show{display:block;animation:fadeDetail .25s ease}
+.wish-head{
+ position:sticky;top:0;z-index:3;padding:18px 30px;background:color-mix(in srgb,var(--page) 88%,transparent);
+ backdrop-filter:blur(18px);border-bottom:1px solid var(--border);
+ display:flex;align-items:center;justify-content:space-between;
+}
+.wish-wrap{max-width:1380px;margin:auto;padding:45px 30px 80px}
+.wish-title{font:600 62px/.9 "Cormorant Garamond";color:var(--text)}
+.wish-sub{color:var(--muted2);font-size:13px;margin:12px 0 28px}
+.wish-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.wish-card{
+ background:var(--surface);border:1px solid var(--border);border-radius:25px;overflow:hidden;
+ box-shadow:0 10px 30px rgba(74,28,65,.07);transition:.3s;
+}
+.wish-card:hover{transform:translateY(-7px);box-shadow:0 25px 55px rgba(74,28,65,.14)}
+.wish-photo{height:350px;position:relative;overflow:hidden}
+.wish-photo img{height:100%;transition:.5s}
+.wish-card:hover img{transform:scale(1.05)}
+.wish-copy{padding:17px}
+.wish-copy h3{font:600 25px "Cormorant Garamond"}
+.wish-copy p{font-size:10px;color:var(--muted2);line-height:1.5;margin:6px 0}
+.wish-actions{display:flex;gap:7px;margin-top:12px}
+.wish-actions button{flex:1;padding:11px;border-radius:11px;font-size:10px;font-weight:800}
+.wish-empty{text-align:center;padding:100px 20px}
+.wish-empty .heart{font-size:70px;animation:heartPulse 1.8s infinite}
+@keyframes heartPulse{50%{transform:scale(1.12)}}
+.premium-bag{
+  background:
+   radial-gradient(circle at 90% 0%,rgba(182,77,134,.14),transparent 30%),
+   var(--surface);
+}
+.drawer{width:min(500px,96vw);padding:0;overflow:hidden}
+.drawer-head{padding:22px 25px;background:linear-gradient(135deg,var(--surface),var(--surface2))}
+.drawer-head h2{font-size:39px}
+.bag-summary{
+ margin:12px 18px;padding:15px;border-radius:18px;background:var(--surface2);
+ border:1px solid var(--border);font-size:10px;color:var(--muted2);
+}
+.bag-summary strong{display:block;font:600 25px "Cormorant Garamond";color:var(--text)}
+.cart-items{padding:7px 22px}
+.cart-item{
+ grid-template-columns:82px 1fr auto;padding:17px 0;border-bottom:1px solid var(--border);
+}
+.cart-item img{height:102px;border-radius:16px;box-shadow:0 8px 20px rgba(0,0,0,.10)}
+.cart-item h4{font-size:20px}
+.qty button{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.cart-foot{padding:17px 22px 22px;background:linear-gradient(180deg,var(--surface),var(--surface2))}
+.free-progress{height:7px;background:var(--border);border-radius:99px;overflow:hidden;margin:7px 0 5px}
+.free-progress i{display:block;height:100%;width:72%;background:linear-gradient(90deg,#6d2c68,#e17ac6);border-radius:99px}
+.bag-perks{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:12px 0}
+.bag-perk{padding:9px 5px;border:1px solid var(--border);border-radius:11px;text-align:center;font-size:9px;color:var(--muted2)}
+.dark-mode .hero-mini{background:#ffffff10}
+.dark-mode .buy-guide,.dark-mode .guide-card,.dark-mode .shipping-pill,
+.dark-mode .wishlist-modal,.dark-mode .wish-card,.dark-mode .premium-bag{background:var(--surface);color:var(--text)}
+.dark-mode .wish-sub,.dark-mode .guide-card span{color:var(--muted2)}
+@media(max-width:900px){
+ .hero-marketing{width:190px;right:3%;top:5%}.hero-mini img{height:110px}.hero-mini:nth-child(2){width:145px}
+ .buy-guide-grid{grid-template-columns:1fr}.guide-options{grid-template-columns:1fr 1fr}
+ .wish-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:760px){
+ .hero-marketing{display:none}
+ .buy-guide{padding:25px}.buy-guide h2{font-size:42px}
+ .guide-options{grid-template-columns:1fr 1fr}.shipping-bar{grid-template-columns:1fr 1fr}
+ .wish-wrap{padding:30px 16px 60px}.wish-title{font-size:48px}.wish-grid{grid-template-columns:1fr 1fr;gap:11px}
+ .wish-photo{height:270px}.wish-copy h3{font-size:21px}
+}
+@media(max-width:430px){
+ .guide-options{grid-template-columns:1fr}.wish-grid{grid-template-columns:1fr 1fr}.wish-photo{height:235px}
+ .shipping-bar{grid-template-columns:1fr 1fr}.bag-perks{grid-template-columns:1fr 1fr 1fr}
+}
+
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="announcement">Free shipping across India · Handpicked sarees · Easy 7-day returns</div>
+
+<div class="nav-wrap">
+<nav class="nav">
+  <button class="iconbtn menu" id="menuBtn">☰</button>
+  <a class="logo" href="#">DHEERAA<span>THE SAREE EDIT</span></a>
+  <div class="navlinks">
+    <a href="#shop">Shop</a><a href="#collections">Collections</a><a href="#saree-gallery">Gallery</a><a href="#news">Journal</a><a href="#story">Our Story</a><a href="#reviews">Reviews</a>
+  </div>
+  <div class="actions">
+    <button class="owner-btn" onclick="openInsights()">✦ Owner Dashboard</button>
+    <button class="iconbtn search-hide" onclick="focusSearch()">⌕</button>
+    <button class="iconbtn" onclick="openWishlist()" aria-label="Open wishlist">♡<b class="count" id="wishCount">0</b></button>
+    <button class="iconbtn" onclick="openCart()">🛍<b class="count" id="cartCount">0</b></button>
+  </div>
+</nav>
+</div>
+
+<main>
+<section class="hero">
+  <div class="hero-card">
+    <div class="hero-content">
+      <div class="eyebrow">The festive edit · 2026</div>
+      <h1>Drape<br><em>your story.</em></h1>
+      <p>Timeless Indian weaves, reimagined for the woman who loves a little tradition, a little drama and a lot of elegance.</p>
+      <a class="cta" href="#shop">Explore the collection <span>→</span></a>
+    </div>
+    <div class="hero-note"><strong>2,000+ happy drapes</strong>Curated across India</div>
+    <div class="hero-marketing">
+      <div class="hero-mini">
+        <img src="https://images.unsplash.com/photo-1597983073493-88cd35cf93d0?auto=format&fit=crop&w=700&q=90" alt="Festive saree styling">
+        <div><span>Trending now</span><b>Violet Festive Edit</b></div>
+      </div>
+      <div class="hero-mini">
+        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=600&q=90" alt="Silk saree detail">
+        <div><span>Most loved</span><b>Temple Gold</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="collections">
+  <div class="section-head">
+    <div><div class="kicker">Curated for you</div><h2>Shop by weave</h2></div>
+    <p class="section-intro">From heirloom silks to breezy everyday drapes — discover a saree for every mood, celebration and chapter.</p>
+  </div>
+  <div class="categories">
+    <a class="cat" href="#shop" onclick="setFilter('Silk')"><img src="https://images.unsplash.com/photo-1610189012906-4b2f0d2c4d28?auto=format&fit=crop&w=700&q=85"><div><strong>Pure Silk</strong><small>Regal & timeless</small></div></a>
+    <a class="cat" href="#shop" onclick="setFilter('Kanchipuram')"><img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=700&q=85"><div><strong>Kanchipuram</strong><small>Temple-town classics</small></div></a>
+    <a class="cat" href="#shop" onclick="setFilter('Banarasi')"><img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=700&q=85"><div><strong>Banarasi</strong><small>Woven in gold</small></div></a>
+    <a class="cat" href="#shop" onclick="setFilter('Organza')"><img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=700&q=85"><div><strong>Organza</strong><small>Airy & luminous</small></div></a>
+    <a class="cat" href="#shop" onclick="setFilter('Cotton')"><img src="https://images.unsplash.com/photo-1610030469668-8e9f641aaf2b?auto=format&fit=crop&w=700&q=85"><div><strong>Cotton</strong><small>Easy everyday</small></div></a>
+    <a class="cat" href="#shop" onclick="setFilter('Bridal')"><img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=85"><div><strong>Bridal</strong><small>Made for moments</small></div></a>
+  </div>
+</section>
+
+<section class="promo">
+  <div class="promo-grid">
+    <div class="promo-card dark">
+      <div class="mini">The wedding edit</div><h3>For the moments you'll remember forever.</h3><p>Statement silk, intricate zari and rich jewel tones — curated for the bride and her favourite people.</p>
+      <a class="cta" href="#shop" onclick="setFilter('Bridal')">Shop bridal →</a>
+      <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=90">
+    </div>
+    <div class="promo-card">
+      <div class="mini">Limited edit</div><h3>Soft golds. Quiet luxury.</h3><p>Organza and linen silhouettes made for elegant evenings.</p>
+      <a class="textlink" href="#shop" onclick="setFilter('Organza')">Discover the edit →</a>
+      <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=900&q=90">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="shop">
+  <div class="section-head">
+    <div><div class="kicker">The collection</div><h2>Find your drape</h2></div>
+    <p class="section-intro">A growing edit of handpicked sarees. Filter by craft, colour or simply search the one that's already in your heart.</p>
+  </div>
+  <div class="toolbar" id="filters">
+    <button class="chip active" data-filter="All">All</button>
+    <button class="chip" data-filter="Silk">Silk</button>
+    <button class="chip" data-filter="Kanchipuram">Kanchipuram</button>
+    <button class="chip" data-filter="Banarasi">Banarasi</button>
+    <button class="chip" data-filter="Organza">Organza</button>
+    <button class="chip" data-filter="Cotton">Cotton</button>
+    <button class="chip" data-filter="Georgette">Georgette</button>
+    <button class="chip" data-filter="Linen">Linen</button>
+    <button class="chip" data-filter="Bridal">Bridal</button>
+    <select id="sortSelect" class="chip" style="outline:0"><option value="featured">Featured</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option><option value="name">Name A–Z</option></select><div class="searchbox">⌕ <input id="search" placeholder="Search sarees, colours, weaves..."></div>
+  </div>
+  <div class="grid" id="productGrid"></div>
+</section>
+
+
+
+
+<section class="section" id="buy-guide">
+ <div class="buy-guide">
+  <div class="buy-guide-grid">
+   <div>
+    <div class="kicker">Easy saree shopping</div>
+    <h2>Not sure what to buy?</h2>
+    <p>Choose by occasion, budget or comfort. Dheeraa takes you straight to the right edit instead of making you scroll endlessly.</p>
+   </div>
+   <div class="guide-options">
+    <button class="guide-card" onclick="setFilter('Bridal')"><div>💍</div><b>Wedding</b><span>Bridal silk, rich zari and statement borders.</span></button>
+    <button class="guide-card" onclick="priceRange(3000,6000)"><div>✨</div><b>Under ₹6K</b><span>Beautiful premium-looking options without overspending.</span></button>
+    <button class="guide-card" onclick="setFilter('Cotton')"><div>🌿</div><b>Everyday</b><span>Breathable cotton and easy drapes for regular wear.</span></button>
+    <button class="guide-card" onclick="setFilter('Organza')"><div>🌸</div><b>Party</b><span>Light, luminous and photo-friendly evening styles.</span></button>
+    <button class="guide-card" onclick="setFilter('Kanchipuram')"><div>♢</div><b>Heirloom</b><span>Traditional silk-inspired pieces for special occasions.</span></button>
+    <button class="guide-card" onclick="showToast('Stylist mode: choose your colour + occasion ✦')"><div>⌁</div><b>Need help?</b><span>Use the Dheeraa stylist for a personalised starting point.</span></button>
+   </div>
+  </div>
+  <div class="shipping-bar">
+   <div class="shipping-pill"><strong>🚚 Free India shipping</strong>On eligible orders</div>
+   <div class="shipping-pill"><strong>↺ 7-day returns</strong>Shop with confidence</div>
+   <div class="shipping-pill"><strong>🎁 Gift ready</strong>Beautiful presentation</div>
+   <div class="shipping-pill"><strong>💬 Easy help</strong>Styling support</div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="stylist">
+<div class="quiz-box">
+<div class="quiz-grid">
+<div><div class="kicker">Dheeraa stylist</div><h2>Find your perfect saree.</h2><p>Answer one quick question and we'll suggest a saree mood for you. A simple shopping experience designed to help customers discover instead of endlessly scroll.</p></div>
+<div><div class="quiz-options">
+<button class="quiz-option" onclick="stylistPick('Wedding')">💍 Wedding / Bridal</button>
+<button class="quiz-option" onclick="stylistPick('Office')">✦ Elegant / Office</button>
+<button class="quiz-option" onclick="stylistPick('Party')">✨ Party / Evening</button>
+<button class="quiz-option" onclick="stylistPick('Everyday')">🌸 Everyday / Easy</button>
+</div><div class="quiz-result" id="quizResult"></div></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="saree-gallery">
+<div class="section-head"><div><div class="kicker">The visual edit</div><h2>Eight moods. One drape.</h2></div><p class="section-intro">Explore colour, texture and personality through the Dheeraa saree edit.</p></div>
+<div class="visual-wall">
+<div class="visual-tile"><img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=90" onerror="this.src='https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=90'"><div class="visual-caption"><small>01 · Heritage</small><strong>Royal Silk</strong></div></div>
+<div class="visual-tile"><img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=90" onerror="this.src='https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=90'"><div class="visual-caption"><small>02 · Craft</small><strong>Temple Gold</strong></div></div>
+<div class="visual-tile"><img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=90" onerror="this.src='https://images.unsplash.com/photo-1610030469668-8e9f641aaf2b?auto=format&fit=crop&w=800&q=90'"><div class="visual-caption"><small>03 · Woven</small><strong>Banarasi Bloom</strong></div></div>
+<div class="visual-tile"><img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=90" onerror="this.src='https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=90'"><div class="visual-caption"><small>04 · Airy</small><strong>Organza Glow</strong></div></div>
+<div class="visual-tile"><img src="https://images.unsplash.com/photo-1610030469668-8e9f641aaf2b?auto=format&fit=crop&w=800&q=90" onerror="this.src='https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=90'"><div class="visual-caption"><small>05 · Everyday</small><strong>Handloom Cotton</strong></div></div>
+<div class="visual-tile"><img src="https://images.unsplash.com/photo-1610189012906-4b2f0d2c4d28?auto=format&fit=crop&w=800&q=90" onerror="this.src='https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=90'"><div class="visual-caption"><small>06 · Evening</small><strong>Midnight Drape</strong></div></div>
+<div class="visual-tile"><img src="https://images.unsplash.com/photo-1597983073493-88cd35cf93d0?auto=format&fit=crop&w=800&q=90" onerror="this.src='https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=90'"><div class="visual-caption"><small>07 · Romance</small><strong>Rose Edit</strong></div></div>
+<div class="visual-tile"><img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=90" onerror="this.src='https://images.unsplash.com/photo-1610030469668-8e9f641aaf2b?auto=format&fit=crop&w=800&q=90'"><div class="visual-caption"><small>08 · Bridal</small><strong>Ruby Ceremony</strong></div></div>
+</div>
+<div class="service-strip">
+<div class="service"><div class="service-icon">✦</div><strong>Curated Weaves</strong><p>Thoughtfully selected textures, borders and colours.</p></div>
+<div class="service"><div class="service-icon">♢</div><strong>Gift Ready</strong><p>Beautiful presentation for birthdays and celebrations.</p></div>
+<div class="service"><div class="service-icon">⌁</div><strong>Easy Drape</strong><p>Details that help you choose the right finish.</p></div>
+<div class="service"><div class="service-icon">♡</div><strong>Made to Remember</strong><p>Pieces chosen to stay beautiful beyond one season.</p></div>
+</div>
+</section>
+
+
+<section class="section" id="news">
+<div class="section-head"><div><div class="kicker">Dheeraa journal</div><h2>Latest from the house</h2></div><p class="section-intro">New drops, styling notes, craft stories and upcoming edits — all in one place.</p></div>
+<div class="review-row">
+<article class="review"><div class="kicker">03 Oct 2026 · New drop</div><p>“The Violet Festive Edit has arrived — jewel tones, soft shimmer and statement borders.”</p><a class="textlink" href="#shop" onclick="setFilter('All')">Explore new arrivals →</a></article>
+<article class="review"><div class="kicker">01 Oct 2026 · Styling</div><p>“Three easy ways to style an organza saree from daytime brunch to evening celebrations.”</p><a class="textlink" href="#saree-gallery">Read styling story →</a></article>
+<article class="review"><div class="kicker">28 Sep 2026 · Craft</div><p>“Why handwoven textures make an everyday saree feel like something special.”</p><a class="textlink" href="#story">Discover our philosophy →</a></article>
+</div>
+</section>
+
+<section class="section" id="story">
+  <div class="story">
+    <div class="story-img"><img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=90"></div>
+    <div class="story-copy">
+      <div class="kicker">Why Dheeraa</div>
+      <h2>Tradition,<br>with a new rhythm.</h2>
+      <p>We believe a saree should feel like you — rooted, expressive and completely effortless. Dheeraa brings together Indian craft traditions and modern styling, so the saree doesn't wait for a special occasion. It becomes the occasion.</p>
+      <div class="points">
+        <div class="point"><strong>01 · Curated</strong><p>Small, thoughtful edits instead of endless scrolling.</p></div>
+        <div class="point"><strong>02 · Authentic</strong><p>We celebrate the character of Indian textiles and weaves.</p></div>
+        <div class="point"><strong>03 · Beautiful</strong><p>Premium presentation from discovery to doorstep.</p></div>
+        <div class="point"><strong>04 · Yours</strong><p>Easy styling, gifting and everyday drapes.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="section-head"><div><div class="kicker">Love notes</div><h2>Worn. Loved. Remembered.</h2></div></div>
+  <div class="review-row">
+    <article class="review"><div class="stars">★★★★★</div><p>“The saree looked even more beautiful in person. The texture, fall and little details were perfect.”</p><div class="avatar"><span>A</span><b>Ananya · Chennai</b></div></article>
+    <article class="review"><div class="stars">★★★★★</div><p>“I wanted something elegant but not too heavy. The organza edit was exactly what I was looking for.”</p><div class="avatar"><span>M</span><b>Meera · Bengaluru</b></div></article>
+    <article class="review"><div class="stars">★★★★★</div><p>“Bought a Banarasi for my mother's anniversary. It felt special from the packaging itself.”</p><div class="avatar"><span>R</span><b>Riya · Mumbai</b></div></article>
+  </div>
+</section>
+
+
+<section class="community">
+ <div class="community-inner">
+  <div class="community-grid">
+   <div>
+    <div class="kicker" style="color:#f0b7dc">Dheeraa Community</div>
+    <h2>Wear it.<br>Share it.<br>Belong.</h2>
+    <p>Join our growing saree circle for styling inspiration, new-drop previews, community picks, festive ideas and exclusive member moments.</p>
+    <div class="community-actions">
+      <button class="community-btn primary" onclick="joinCommunity()">♡ Join the community</button>
+      <button class="community-btn ghost" onclick="showToast('Community styling room opens soon ✦')">Explore community →</button>
+    </div>
+   </div>
+   <div class="community-stats">
+    <div class="community-stat"><strong>2.8K+</strong><span>Style lovers</span></div>
+    <div class="community-stat"><strong>120+</strong><span>Community looks</span></div>
+    <div class="community-stat"><strong>Weekly</strong><span>New style drops</span></div>
+    <div class="community-stat"><strong>24/7</strong><span>Wishlist inspiration</span></div>
+   </div>
+  </div>
+  <div class="feature-strip">
+   <div class="feature-card"><div>✦</div><b>Drop alerts</b><span>Be first to know about new collections.</span></div>
+   <div class="feature-card"><div>♡</div><b>Community picks</b><span>Discover what other saree lovers are saving.</span></div>
+   <div class="feature-card"><div>⌁</div><b>Style rooms</b><span>Save your favourite drapes and styling moods.</span></div>
+   <div class="feature-card"><div>♢</div><b>Member moments</b><span>Festive perks and private shopping edits.</span></div>
+  </div>
+ </div>
+</section>
+
+<section class="newsletter">
+  <div class="news-inner">
+    <div><div class="kicker">A little love, delivered</div><h2>Join the<br>Dheeraa circle.</h2><p>Get first access to new drops, festive edits, styling stories and private offers.</p></div>
+    <form class="email" onsubmit="subscribe(event)"><input type="email" required placeholder="Your email address"><button>Join us</button></form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div><div class="footer-logo">Dheeraa</div><p>Indian sarees, thoughtfully curated for modern wardrobes. From everyday elegance to the moments that deserve a little more sparkle.</p></div>
+    <div><h4>Shop</h4><ul><li>New arrivals</li><li>Best sellers</li><li>Silk sarees</li><li>Organza edit</li><li>Bridal edit</li></ul></div>
+    <div><h4>Help</h4><ul><li>Shipping & returns</li><li>Size & drape guide</li><li>Care instructions</li><li>Contact us</li><li>FAQs</li></ul></div>
+    <div><h4>Follow</h4><ul><li>Instagram</li><li>Pinterest</li><li>Facebook</li><li>YouTube</li></ul></div>
+  </div>
+  <div class="copyright"><span>© 2026 Dheeraa. All rights reserved.</span><span>Made with love for the six-yard story.</span></div>
+</footer>
+
+
+<div class="side-menu" id="sideMenu">
+ <div class="side-backdrop" onclick="closeSideMenu()"></div>
+ <aside class="side-panel">
+  <div class="side-top"><div class="side-title">Dheeraa</div><button class="iconbtn" onclick="closeSideMenu()">×</button></div>
+  <div class="menu-group"><h4>Explore</h4>
+   <button class="menu-item" onclick="menuGo('shop')">All Sarees <span>→</span></button>
+   <button class="menu-item" onclick="setFilter('Silk');menuGo('shop')">Silk Sarees <span>→</span></button>
+   <button class="menu-item" onclick="setFilter('Kanchipuram');menuGo('shop')">Kanchipuram <span>→</span></button>
+   <button class="menu-item" onclick="setFilter('Banarasi');menuGo('shop')">Banarasi <span>→</span></button>
+   <button class="menu-item" onclick="setFilter('Organza');menuGo('shop')">Organza <span>→</span></button>
+   <button class="menu-item" onclick="setFilter('Bridal');menuGo('shop')">Bridal Edit <span>→</span></button>
+  </div>
+  <div class="menu-group"><h4>Shop by price</h4>
+   <div class="menu-pills">
+    <button class="menu-pill" onclick="priceRange(0,3000)">Under ₹3,000</button>
+    <button class="menu-pill" onclick="priceRange(3000,6000)">₹3,000–₹6,000</button>
+    <button class="menu-pill" onclick="priceRange(6000,10000)">₹6,000–₹10,000</button>
+    <button class="menu-pill" onclick="priceRange(10000,999999)">₹10,000+</button>
+   </div>
+  </div>
+  <div class="menu-group"><h4>Quick access</h4>
+   <button class="menu-item" onclick="menuGo('news')">Latest Journal <span>✦</span></button>
+   <button class="menu-item" onclick="openWishlist();closeSideMenu()">Wishlist <span>♡</span></button>
+   <button class="menu-item" onclick="openCart();closeSideMenu()">My Bag <span>🛍</span></button>
+   <button class="menu-item" onclick="menuGo('saree-gallery')">Saree Gallery <span>⌁</span></button><button class="menu-item" onclick="openInsights()">Owner Dashboard <span>↗</span></button>
+  </div>
+  <div class="menu-group"><h4>Settings</h4>
+   <div class="settings-row"><span>Dark mode</span><button class="switch" id="darkSwitch" onclick="toggleDark()"></button></div>
+   <div class="settings-row"><span>Reduce motion</span><button class="switch" id="motionSwitch" onclick="toggleMotion()"></button></div>
+   <div class="settings-row"><span>Large text</span><button class="switch" id="textSwitch" onclick="toggleText()"></button></div>
+  </div>
+  <div class="menu-group"><h4>Coming soon</h4>
+   <button class="menu-item">Personal saree stylist <span>⌁</span></button>
+   <button class="menu-item">Virtual drape preview <span>✧</span></button>
+   <button class="menu-item">Custom blouse studio <span>✦</span></button>
+  </div>
+ </aside>
+</div>
+
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+<div class="modal" id="quickModal">
+  <button class="close" onclick="closeAll()">×</button>
+  <div class="quick">
+    <div class="quick-img"><img id="qImg" style="cursor:zoom-in" onclick="openLightbox(this.src,document.getElementById('qName').textContent)"></div>
+    <div class="quick-copy">
+      <div class="kicker" id="qType"></div><h2 id="qName"></h2>
+      <div class="stars">★★★★★ · 4.9</div>
+      <div class="detail-price"><div class="bigprice" id="qPrice"></div><span class="save-pill" id="qSave"></span></div>
+      <p class="desc" id="qDesc"></p><div class="gallery-label">Explore this saree</div><div class="quick-gallery" id="qGallery"></div>
+      <div class="feature-list" id="qFeatures"></div>
+      <div class="select"><label>COLOUR</label><select><option>As pictured</option><option>Deep wine</option><option>Antique gold</option></select></div>
+      <div class="select"><label>FALL & BLOUSE</label><select><option>Unstitched blouse piece</option><option>Pre-stitched blouse</option></select></div>
+      <button class="primary" id="qAdd">Add to bag</button><button class="add" id="qDetails" style="margin-top:8px">View full saree details →</button>
+    </div>
+  </div>
+</div>
+
+<aside class="drawer premium-bag" id="cartDrawer">
+  <div class="drawer-head"><div><div class="kicker">Dheeraa edit</div><h2>Your bag</h2></div><button class="iconbtn" onclick="closeAll()">×</button></div>
+  <div class="bag-summary"><strong id="bagCountLabel">Your selected pieces</strong><span id="bagMessage">Beautiful choices deserve beautiful packaging.</span></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div style="font-size:10px;color:var(--muted2)">Free shipping progress</div>
+    <div class="free-progress"><i id="shippingProgress"></i></div>
+    <div id="shippingHint" style="font-size:9px;color:var(--muted2);margin-bottom:10px">You're getting closer to free shipping ✦</div>
+    <div class="bag-perks"><div class="bag-perk">🚚 Fast dispatch</div><div class="bag-perk">↺ 7-day returns</div><div class="bag-perk">🎁 Gift ready</div></div>
+    <div class="total"><span>Total</span><b id="total">₹0</b></div>
+    <small>Secure demo checkout · No real payment is processed</small>
+    <button class="primary" onclick="openCheckout()">Continue to checkout →</button>
+  </div>
+</aside>
+
+
+<div class="checkout-modal" id="checkoutModal">
+  <div class="checkout-head">
+    <div class="paytm-brand">Pay<span>tm</span></div>
+    <span class="demo-tag">Demo payment</span>
+    <button class="iconbtn" onclick="closeCheckout()">×</button>
+  </div>
+  <div class="checkout-body" id="checkoutBody">
+    <div class="progress"><span class="on"></span><span class="on"></span><span></span></div>
+    <h2 style="font-family:'Cormorant Garamond';font-size:40px">Complete your demo order</h2>
+    <p style="font-size:12px;color:#777;margin:5px 0 20px">This is a simulated Paytm-style page. No money will be charged.</p>
+    <div class="checkout-summary" id="checkoutSummary"></div>
+    <div class="pay-methods">
+      <button class="pay-method active" onclick="selectPay(this)">UPI</button>
+      <button class="pay-method" onclick="selectPay(this)">Card</button>
+      <button class="pay-method" onclick="selectPay(this)">Wallet</button>
+    </div>
+    <form class="demo-form" onsubmit="demoPay(event)">
+      <input required placeholder="Full name">
+      <input required type="email" placeholder="Email address">
+      <input required placeholder="UPI ID / demo payment identifier">
+      <button class="pay-btn">Pay securely · <span id="payAmount">₹0</span></button>
+    </form>
+    <div class="demo-note">🔒 Demo only · Uses no real payment credentials · No transaction is sent</div>
+  </div>
+</div>
+
+
+
+<div class="insights" id="insights">
+ <div class="insight-head"><div><div class="kicker">Owner workspace</div><div style="font-family:'Cormorant Garamond';font-size:34px;color:var(--accent)">Dheeraa Owner Dashboard</div></div><button class="iconbtn" onclick="closeInsights()">×</button></div>
+ <div class="insight-wrap">
+  <p style="color:#777;font-size:12px;margin-bottom:20px">Demo analytics from interactions on this browser. Useful as a frontend prototype; connect a backend/analytics service for real customer data.</p>
+  <div class="kpi-grid">
+   <div class="kpi"><small>Products</small><strong>24</strong><span>Live catalogue</span></div>
+   <div class="kpi"><small>Wishlist adds</small><strong id="insWish">0</strong><span>This browser</span></div>
+   <div class="kpi"><small>Bag items</small><strong id="insCart">0</strong><span>Current session</span></div>
+   <div class="kpi"><small>Quiz picks</small><strong id="insQuiz">0</strong><span>Stylist interactions</span></div>
+   <div class="kpi"><small>Community</small><strong id="insCommunity">0</strong><span>Members on this demo</span></div>
+   <div class="kpi"><small>Conversion</small><strong id="insConversion">0%</strong><span>Demo bag activity</span></div>
+   <div class="kpi"><small>Saved value</small><strong id="insSaved">₹0</strong><span>Wishlist catalogue value</span></div>
+  </div>
+  <div class="insight-grid">
+   <div class="insight-card"><h3 style="font-family:'Cormorant Garamond';font-size:30px">Popular categories</h3>
+    <div style="margin-top:18px"><small>Silk</small><div class="bar"><i style="width:82%"></i></div><small>Bridal</small><div class="bar"><i style="width:74%"></i></div><small>Organza</small><div class="bar"><i style="width:61%"></i></div><small>Banarasi</small><div class="bar"><i style="width:54%"></i></div></div>
+   </div>
+   <div class="insight-card"><h3 style="font-family:'Cormorant Garamond';font-size:30px">Store pulse</h3><div class="insight-list" style="margin-top:15px"><div class="insight-row"><span>Wishlist rate</span><b id="insWishRate">0%</b></div><div class="insight-row"><span>Bag value</span><b id="insBagValue">₹0</b></div><div class="insight-row"><span>Last activity</span><b>Just now</b></div></div></div>
+  </div>
+  <div class="insight-card" style="margin-top:15px">
+ <h3 style="font-family:'Cormorant Garamond';font-size:30px">Live owner tools</h3>
+ <div class="community-actions" style="margin-top:15px">
+  <button class="community-btn primary" style="background:var(--accent);color:#fff" onclick="exportStoreData()">Export store snapshot</button>
+  <button class="community-btn ghost" style="background:var(--surface2);color:var(--text);border-color:var(--border)" onclick="clearDemoAnalytics()">Reset demo analytics</button>
+ </div>
+</div>
+<div class="insight-card" style="margin-top:15px"><h3 style="font-family:'Cormorant Garamond';font-size:30px">Owner roadmap</h3><p style="font-size:12px;color:#777;line-height:1.7;margin-top:8px">Next production upgrades: real inventory, customer accounts, WhatsApp enquiry, Razorpay/Paytm gateway, order database, delivery tracking, coupon engine and real analytics.</p></div>
+ </div>
+</div>
+
+
+<div class="wishlist-modal" id="wishlistModal">
+ <div class="wish-head">
+  <div><div class="kicker">Saved for later</div><div class="wish-title">Your wishlist ♡</div></div>
+  <button class="iconbtn" onclick="closeWishlist()">×</button>
+ </div>
+ <div class="wish-wrap">
+  <p class="wish-sub">Keep your favourites here, compare them later, and move your perfect drape straight into your bag.</p>
+  <div class="wish-grid" id="wishlistGrid"></div>
+ </div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()"><button class="light-close" onclick="closeLightbox()">×</button><img id="lightImg"><div class="light-caption" id="lightCaption"></div></div>
+<div class="detail-screen" id="detailScreen">
+ <div class="detail-nav"><button class="iconbtn" onclick="closeDetail()">←</button><div class="logo">DHEERAA<span>THE SAREE EDIT</span></div><button class="iconbtn" onclick="openCart()">🛍</button></div>
+ <div class="detail-main">
+  <div><div class="detail-hero-img"><img id="detailImg" onclick="openLightbox(document.getElementById('detailImg').src,document.getElementById('detailName').textContent)"></div><div class="detail-thumbs" id="detailThumbs"></div></div>
+  <div class="detail-content"><div class="kicker" id="detailType"></div><h1 id="detailName"></h1><div class="stars">★★★★★ · 4.9 · Loved by our community</div><div class="detail-price"><div class="bigprice" id="detailPrice"></div><span class="save-pill" id="detailSave"></span></div><p class="lead" id="detailDesc"></p><div class="detail-specs" id="detailSpecs"></div><div class="drape-switch"><button class="active">Classic Drape</button><button>Contemporary</button><button>Party Styling</button></div><div class="detail-actions"><button class="primary" id="detailAdd">Add to bag</button><button style="background:#f3e4f0;color:#6d2c68" id="detailWish">♡ Wishlist</button></div><p style="font-size:10px;color:#888;margin-top:16px">Free India shipping · 7-day returns · Gift wrapping available</p></div>
+ </div>
+</div>
+
+<button class="owner-dash-fab" onclick="openInsights()">✦ Owner Dashboard</button>
+<div class="toast" id="toast"></div>
+
+<script>
+const products=[
+ {id:1,name:"Rani Zari Silk",type:"Silk",price:7499,old:8999,badge:"BESTSELLER",img:"https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=88",desc:"A rich silk drape with luminous zari detailing, designed for festive evenings and timeless portraits."},
+ {id:2,name:"Temple Gold Kanchipuram",type:"Kanchipuram",price:11999,old:13999,badge:"HEIRLOOM",img:"https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=88",desc:"Classic Kanchipuram-inspired grandeur with a bold border and antique gold character."},
+ {id:3,name:"Madhubani Banarasi",type:"Banarasi",price:8499,old:9999,badge:"NEW",img:"https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=900&q=88",desc:"Intricate woven richness with a soft hand feel and a beautifully detailed pallu."},
+ {id:4,name:"Champagne Organza",type:"Organza",price:4299,old:4999,badge:"TRENDING",img:"https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=900&q=88",desc:"Airy, luminous and effortlessly graceful — your answer to quiet luxury."},
+ {id:5,name:"Rosewood Cotton",type:"Cotton",price:2299,old:2799,badge:"EVERYDAY",img:"https://images.unsplash.com/photo-1610030469668-8e9f641aaf2b?auto=format&fit=crop&w=900&q=88",desc:"A breathable cotton drape with a soft texture made for beautiful everyday dressing."},
+ {id:6,name:"Midnight Georgette",type:"Georgette",price:3599,old:4199,badge:"PARTY EDIT",img:"https://images.unsplash.com/photo-1610189012906-4b2f0d2c4d28?auto=format&fit=crop&w=900&q=88",desc:"Fluid georgette with an elegant fall and a subtle festive sheen."},
+ {id:7,name:"Ivory Linen Muse",type:"Linen",price:2899,old:3399,badge:"MINIMAL",img:"https://images.unsplash.com/photo-1610030469668-8e9f641aaf2b?auto=format&fit=crop&w=900&q=88",desc:"Crisp, breathable linen for slow mornings, workdays and understated celebrations."},
+ {id:8,name:"Bridal Kumkum Silk",type:"Bridal",price:15499,old:17999,badge:"BRIDAL",img:"https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=88",desc:"A celebratory red silk statement with an opulent border for your most photographed day."},
+ {id:9,name:"Peach Petal Organza",type:"Organza",price:3999,old:4599,badge:"NEW",img:"https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=900&q=88",desc:"Soft peach tones, delicate texture and an ethereal finish."},
+ {id:10,name:"Mysore Gold Silk",type:"Silk",price:6799,old:7999,badge:"CLASSIC",img:"https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=88",desc:"A graceful silk classic built around a warm gold palette."},
+ {id:11,name:"Maroon Banarasi Bloom",type:"Banarasi",price:9299,old:10999,badge:"LIMITED",img:"https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=900&q=88",desc:"Deep maroon, delicate motifs and a rich woven pallu for festive evenings."},
+ {id:12,name:"Sage Handloom Cotton",type:"Cotton",price:2499,old:2999,badge:"EASY DRAPE",img:"https://images.unsplash.com/photo-1610030469668-8e9f641aaf2b?auto=format&fit=crop&w=900&q=88",desc:"An earthy handloom-inspired cotton for days when comfort is the luxury."},
+ {id:13,name:"Kashi Gulab Zari",type:"Banarasi",price:7899,old:9499,badge:"EDITOR'S PICK",img:"https://images.unsplash.com/photo-1597983073493-88cd35cf93d0?auto=format&fit=crop&w=900&q=88",desc:"Rose-toned Banarasi richness with delicate floral zari work and a graceful festive fall.",details:["Banarasi weave","Silk blend","Floral zari","Festive wear"]},
+ {id:14,name:"Nila Kanchipuram",type:"Kanchipuram",price:12899,old:14999,badge:"PREMIUM",img:"https://images.unsplash.com/photo-1610189012906-4b2f0d2c4d28?auto=format&fit=crop&w=900&q=88",desc:"A jewel-blue Kanchipuram statement with a traditional gold border and luminous finish.",details:["Kanchipuram silk","Pure zari border","Jewel blue","Wedding wear"]},
+ {id:15,name:"Blush Chiffon Dream",type:"Chiffon",price:3199,old:3899,badge:"NEW DROP",img:"https://images.unsplash.com/photo-1610030469668-8e9f641aaf2b?auto=format&fit=crop&w=900&q=88",desc:"Feather-light chiffon in a romantic blush palette, made for effortless evening drapes.",details:["Soft chiffon","Lightweight","Blush pink","Party wear"]},
+ {id:16,name:"Emerald Bridal Silk",type:"Bridal",price:13999,old:16499,badge:"BRIDE EDIT",img:"https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=88",desc:"A rich emerald bridal silk with an ornate border for statement wedding styling.",details:["Bridal silk","Antique zari","Emerald","Wedding wear"]},
+ {id:17,name:"Pearl White Linen",type:"Linen",price:3099,old:3699,badge:"QUIET LUXURY",img:"https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=900&q=88",desc:"Pearl-white linen with a polished drape for refined day-to-evening styling.",details:["Premium linen","Breathable","Pearl white","All-day wear"]},
+ {id:18,name:"Ruby Temple Silk",type:"Silk",price:8999,old:10499,badge:"LIMITED",img:"https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=88",desc:"Ruby red silk with temple-inspired detailing and a rich ceremonial character.",details:["Pure silk","Temple motifs","Ruby red","Festive wear"]},
+ {id:19,name:"Sandalwood Cotton",type:"Cotton",price:2399,old:2899,badge:"FAVOURITE",img:"https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=900&q=88",desc:"Warm sandalwood tones and an easy cotton texture for polished everyday dressing.",details:["Handloom cotton","Soft texture","Sandalwood","Everyday"]},
+ {id:20,name:"Noir Satin Drape",type:"Georgette",price:3799,old:4499,badge:"EVENING EDIT",img:"https://images.unsplash.com/photo-1610189012906-4b2f0d2c4d28?auto=format&fit=crop&w=900&q=88",desc:"A fluid dark georgette-inspired drape with a sleek evening silhouette.",details:["Fluid georgette","Satin sheen","Noir","Evening wear"]},
+{id:21,name:"Mogra Pearl Silk",type:"Silk",price:8299,old:9799,badge:"NEW",img:"https://images.unsplash.com/photo-1597983073493-88cd35cf93d0?auto=format&fit=crop&w=900&q=88",desc:"Pearl ivory silk with soft floral detailing and a luminous festive finish.",details:["Pure silk","Floral zari","Pearl ivory","Festive"]},
+{id:22,name:"Mehendi Green Organza",type:"Organza",price:4199,old:4899,badge:"TRENDING",img:"https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=900&q=88",desc:"A graceful green organza with a delicate translucent texture.",details:["Organza","Lightweight","Mehendi green","Party wear"]},
+{id:23,name:"Terracotta Handloom",type:"Cotton",price:2599,old:2999,badge:"HANDLOOM",img:"https://images.unsplash.com/photo-1610030469668-8e9f641aaf2b?auto=format&fit=crop&w=900&q=88",desc:"Earthy terracotta cotton with a beautifully relaxed handloom character.",details:["Handloom cotton","Breathable","Terracotta","Everyday"]},
+{id:24,name:"Champagne Bridal Zari",type:"Bridal",price:14999,old:17999,badge:"BRIDAL",img:"https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=88",desc:"Champagne silk with ornate zari detailing for sophisticated bridal styling.",details:["Bridal silk","Rich zari","Champagne","Wedding"]}
+
+];
+
+let filter="All", wishlist=JSON.parse(localStorage.getItem("dheeraaWish")||"[]"), cart=JSON.parse(localStorage.getItem("dheeraaCart")||"[]");
+
+const money=n=>"₹"+n.toLocaleString("en-IN");
+
+function safeImage(id, primary){
+ const pool=[
+ "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=88",
+ "https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=900&q=88",
+ "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=900&q=88",
+ "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=88",
+ "https://images.unsplash.com/photo-1610030469668-8e9f641aaf2b?auto=format&fit=crop&w=900&q=88"
+ ];
+ return primary||pool[(Number(id)-1)%pool.length];
+}
+function productImageHTML(p,cls=""){
+ return `<img class="${cls}" src="${safeImage(p.id,p.img)}" alt="${p.name}" loading="lazy" data-fallback="${poolImage(p.id)}" onerror="imageFallback(this)">`;
+}
+function poolImage(id){
+ const pool=[
+ "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=88",
+ "https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=900&q=88",
+ "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=900&q=88",
+ "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=88",
+ "https://images.unsplash.com/photo-1610030469668-8e9f641aaf2b?auto=format&fit=crop&w=900&q=88"
+ ];
+ return pool[(Number(id)-1)%pool.length];
+}
+function imageFallback(img){
+ const next=img.dataset.fallback;
+ if(next && img.src!==next){img.src=next;img.dataset.fallback="";}
+ else{img.style.opacity=".85"}
+}
+
+function render(){
+ const q=document.getElementById("search").value.toLowerCase().trim();
+ let list=products.filter(p=>(filter==="All"||p.type===filter)&&(!q||(`${p.name} ${p.type}`.toLowerCase().includes(q))));
+ const sort=document.getElementById("sortSelect")?.value||"featured";
+ if(sort==="low") list.sort((a,b)=>a.price-b.price);
+ if(sort==="high") list.sort((a,b)=>b.price-a.price);
+ if(sort==="name") list.sort((a,b)=>a.name.localeCompare(b.name));
+ const grid=document.getElementById("productGrid");
+ if(!list.length){grid.innerHTML='<div class="no-results">No sarees found in this edit. Try another weave or search term.</div>';return}
+ grid.innerHTML=list.map(p=>`
+ <article class="product">
+  <div class="pic"><span class="badge">${p.badge}</span>
+   <button class="wish ${wishlist.includes(p.id)?"on":""}" onclick="toggleWish(${p.id})">${wishlist.includes(p.id)?"♥":"♡"}</button>
+   ${productImageHTML(p)}
+  </div>
+  <div class="product-info">
+   <div class="type">${p.type}</div><span class="glow-label">✦ Handpicked</span><h3>${p.name}</h3><div class="stars">★★★★★ <span style="color:#9c8888">4.9</span></div>
+   <div class="price"><strong>${money(p.price)}</strong><span class="old">${money(p.old)}</span></div>
+   <button class="add" onclick="addCart(${p.id})">Add to bag · +</button>
+   <button class="add" style="margin-top:6px;background:transparent;border:1px solid #eaded3" onclick="quick(${p.id})">Quick view</button>
+  </div>
+ </article>`).join("");
+}
+function setFilter(f){
+ filter=f;
+ document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x.dataset.filter===f));
+ render();
+ setTimeout(()=>document.getElementById("shop").scrollIntoView({behavior:"smooth"}),30);
+}
+document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>setFilter(c.dataset.filter));
+document.getElementById("search").addEventListener("input",render);
+function focusSearch(){document.getElementById("search").focus();document.getElementById("shop").scrollIntoView({behavior:"smooth"})}
+
+function toggleWish(id){
+ wishlist=wishlist.includes(id)?wishlist.filter(x=>x!==id):[...wishlist,id];
+ localStorage.setItem("dheeraaWish",JSON.stringify(wishlist));
+ document.getElementById("wishCount").textContent=wishlist.length; render();
+ showToast(wishlist.includes(id)?"Added to wishlist ♡":"Removed from wishlist");
+}
+function showWishlist(){
+ if(!wishlist.length){showToast("Your wishlist is waiting for its first saree ♡");return}
+ const names=wishlist.map(id=>products.find(p=>p.id===id)?.name).filter(Boolean);
+ showToast(names.slice(0,2).join(" · ")+(names.length>2?" + more":""));
+}
+function addCart(id){
+ const found=cart.find(x=>x.id===id);
+ if(found)found.qty++; else cart.push({id,qty:1});
+ saveCart();renderCart();showToast("Added to your bag ✨");
+}
+function saveCart(){localStorage.setItem("dheeraaCart",JSON.stringify(cart));document.getElementById("cartCount").textContent=cart.reduce((a,b)=>a+b.qty,0)}
+function renderCart(){
+ const box=document.getElementById("cartItems");
+ if(!cart.length){box.innerHTML='<div class="empty">Your bag is beautifully empty.<br>Find a drape you love.</div>';document.getElementById("total").textContent="₹0";return}
+ box.innerHTML=cart.map(x=>{const p=products.find(y=>y.id===x.id);return `<div class="cart-item"><img src="${p.img}"><div><h4>${p.name}</h4><p>${money(p.price)}</p><div class="qty"><button onclick="changeQty(${p.id},-1)">−</button><span>${x.qty}</span><button onclick="changeQty(${p.id},1)">+</button></div></div><button onclick="removeCart(${p.id})">×</button></div>`}).join("");
+ document.getElementById("total").textContent=money(cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0));
+}
+function changeQty(id,d){const x=cart.find(a=>a.id===id);x.qty+=d;if(x.qty<=0)cart=cart.filter(a=>a.id!==id);saveCart();renderCart()}
+function removeCart(id){cart=cart.filter(x=>x.id!==id);saveCart();renderCart()}
+function openCart(){document.getElementById("overlay").classList.add("show");document.getElementById("cartDrawer").classList.add("show");renderCart()}
+function quick(id){
+ const p=products.find(x=>x.id===id);
+ document.getElementById("qImg").src=p.img;document.getElementById("qName").textContent=p.name;document.getElementById("qType").textContent=p.type;document.getElementById("qPrice").textContent=money(p.price);document.getElementById("qSave").textContent="SAVE "+money(p.old-p.price);document.getElementById("qDesc").textContent=p.desc;
+ document.getElementById("qGallery").innerHTML=[p.img,"https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=500&q=85","https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=500&q=85","https://images.unsplash.com/photo-1610030469668-8e9f641aaf2b?auto=format&fit=crop&w=500&q=85"].map((src,i)=>`<button class="${i===0?'active':''}" onclick="document.getElementById('qImg').src=this.querySelector('img').src;document.querySelectorAll('#qGallery button').forEach(b=>b.classList.remove('active'));this.classList.add('active')"><img src="${src}" onerror="this.src='${p.img}'"></button>`).join("");
+ document.getElementById("qFeatures").innerHTML=(p.details||[p.type,"Premium finish","Handpicked","Dheeraa edit"]).map((x,i)=>`<div><b>${["Weave","Finish","Palette","Occasion"][i]||"Detail"}</b><span>${x}</span></div>`).join("");
+ document.getElementById("qAdd").onclick=()=>{addCart(p.id);closeAll()};document.getElementById("qDetails").onclick=()=>{closeAll();openDetail(p.id)};
+ document.getElementById("overlay").classList.add("show");document.getElementById("quickModal").classList.add("show");
+}
+function closeAll(){closeSideMenu();document.getElementById("checkoutModal").classList.remove("show");document.getElementById("overlay").classList.remove("show");document.getElementById("quickModal").classList.remove("show");document.getElementById("cartDrawer").classList.remove("show")}
+function checkout(){if(!cart.length){showToast("Add a saree before checkout.");return}showToast("Demo checkout — connect your payment gateway here ✨")}
+function subscribe(e){e.preventDefault();e.target.reset();showToast("Welcome to the Dheeraa circle ✨")}
+function showToast(t){const x=document.getElementById("toast");x.textContent=t;x.classList.add("show");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>x.classList.remove("show"),2500)}
+document.getElementById("menuBtn").onclick=openSideMenu;
+if(localStorage.getItem("dheeraaDark")==="true"){document.body.classList.add("dark-mode");}
+document.getElementById("wishCount").textContent=wishlist.length;saveCart();render();
+
+function openCheckout(){
+ if(!cart.length){showToast("Your bag is empty.");return}
+ document.getElementById("cartDrawer").classList.remove("show");
+ document.getElementById("checkoutModal").classList.add("show");
+ document.getElementById("overlay").classList.add("show");
+ const total=cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0);
+ document.getElementById("payAmount").textContent=money(total);
+ document.getElementById("checkoutSummary").innerHTML=cart.map(x=>{const p=products.find(y=>y.id===x.id);return `<div class="line"><span>${p.name} × ${x.qty}</span><b>${money(p.price*x.qty)}</b></div>`}).join("")+`<div class="line"><span>Shipping</span><b>FREE</b></div><div class="line grand"><span>Total</span><b>${money(total)}</b></div>`;
+}
+function closeCheckout(){document.getElementById("checkoutModal").classList.remove("show");document.getElementById("overlay").classList.remove("show")}
+function selectPay(btn){document.querySelectorAll(".pay-method").forEach(x=>x.classList.remove("active"));btn.classList.add("active")}
+function demoPay(e){
+ e.preventDefault();
+ const id="VAS"+Date.now().toString().slice(-8);
+ document.getElementById("checkoutBody").innerHTML=`<div class="success-screen"><div class="success-icon">✓</div><div class="kicker">Payment simulated successfully</div><h2>Order confirmed!</h2><p style="color:#777;font-size:13px;line-height:1.7;margin:12px auto;max-width:440px">Your Dheeraa demo order has been created. No real payment was processed.</p><div class="order-id">${id}</div><br><button class="continue-btn" onclick="finishDemo()">Continue shopping</button></div>`;
+ cart=[];saveCart();renderCart();
+}
+function finishDemo(){closeCheckout();location.hash="shop";document.getElementById("shop").scrollIntoView({behavior:"smooth"});showToast("Thank you for shopping with Dheeraa ✨")}
+
+
+document.getElementById("sortSelect")?.addEventListener("change",render);
+
+function menuGo(id){closeSideMenu();document.getElementById(id)?.scrollIntoView({behavior:"smooth"});}
+function closeSideMenu(){document.getElementById("sideMenu").classList.remove("show")}
+function openSideMenu(){document.getElementById("sideMenu").classList.add("show")}
+function priceRange(min,max){
+ filter="All";document.querySelectorAll(".chip[data-filter]").forEach(x=>x.classList.toggle("active",x.dataset.filter==="All"));
+ const q=document.getElementById("search");q.value="";
+ const grid=document.getElementById("productGrid");
+ let list=products.filter(p=>p.price>=min&&p.price<=max);
+ grid.innerHTML=list.map(p=>`<article class="product"><div class="pic"><span class="badge">${p.badge}</span><button class="wish ${wishlist.includes(p.id)?"on":""}" onclick="toggleWish(${p.id})">${wishlist.includes(p.id)?"♥":"♡"}</button>${productImageHTML(p)}</div><div class="product-info"><div class="type">${p.type}</div><span class="glow-label">✦ Handpicked</span><h3>${p.name}</h3><div class="stars">★★★★★ <span style="color:#9c8888">4.9</span></div><div class="price"><strong>${money(p.price)}</strong><span class="old">${money(p.old)}</span></div><button class="add" onclick="addCart(${p.id})">Add to bag · +</button><button class="add" style="margin-top:6px;background:transparent;border:1px solid #eaded3" onclick="quick(${p.id})">Quick view</button></div></article>`).join("");
+ closeSideMenu();document.getElementById("shop").scrollIntoView({behavior:"smooth"});
+}
+function openLightbox(src,title){document.getElementById("lightImg").src=src;document.getElementById("lightCaption").textContent=title||"";document.getElementById("lightbox").classList.add("show")}
+function closeLightbox(e){if(e&&e.target&&e.target.id==="lightImg")return;document.getElementById("lightbox").classList.remove("show")}
+function openDetail(id){
+ const p=products.find(x=>x.id===id);if(!p)return;
+ document.getElementById("detailImg").src=p.img;document.getElementById("detailType").textContent=p.type;document.getElementById("detailName").textContent=p.name;document.getElementById("detailPrice").textContent=money(p.price);document.getElementById("detailSave").textContent="SAVE "+money(p.old-p.price);document.getElementById("detailDesc").textContent=p.desc;
+ document.getElementById("detailSpecs").innerHTML=(p.details||[p.type,"Premium finish","Handpicked","Dheeraa edit"]).map((x,i)=>`<div class="spec"><small>${["Weave","Finish","Palette","Occasion"][i]||"Detail"}</small><strong>${x}</strong></div>`).join("");
+ document.getElementById("detailThumbs").innerHTML=[p.img,"https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=600&q=85","https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=85","https://images.unsplash.com/photo-1610030469668-8e9f641aaf2b?auto=format&fit=crop&w=600&q=85"].map((src,i)=>`<button class="${i===0?'active':''}" onclick="setDetailImg('${src}',this,'${p.img}')"><img src="${src}" onerror="this.src='${p.img}'"></button>`).join("");
+ document.getElementById("detailAdd").onclick=()=>addCart(p.id);
+ document.getElementById("detailWish").onclick=()=>toggleWish(p.id);
+ document.getElementById("detailScreen").classList.add("show");document.body.style.overflow="hidden";
+}
+function setDetailImg(src,btn,fallback){const img=document.getElementById("detailImg");img.onerror=()=>img.src=fallback;img.src=src;document.querySelectorAll("#detailThumbs button").forEach(b=>b.classList.remove("active"));btn.classList.add("active")}
+function closeDetail(){document.getElementById("detailScreen").classList.remove("show");document.body.style.overflow=""}
+function toggleDark(){document.body.classList.toggle("dark-mode");document.getElementById("darkSwitch").classList.toggle("on");localStorage.setItem("dheeraaDark",document.body.classList.contains("dark-mode"))}
+function toggleMotion(){document.body.classList.toggle("reduce-motion");document.getElementById("motionSwitch").classList.toggle("on");document.documentElement.style.setProperty("--motion",document.body.classList.contains("reduce-motion")?"0s":".3s")}
+function toggleText(){document.body.classList.toggle("large-text");document.getElementById("textSwitch").classList.toggle("on");document.body.style.fontSize=document.body.classList.contains("large-text")?"110%":""}
+
+
+let quizCount=Number(localStorage.getItem("dheeraaQuizCount")||0);
+function stylistPick(mood){
+ quizCount++;localStorage.setItem("dheeraaQuizCount",quizCount);
+ const map={Wedding:["Bridal","Emerald Bridal Silk"],Office:["Cotton","Sandalwood Cotton"],Party:["Organza","Mehendi Green Organza"],Everyday:["Linen","Pearl White Linen"]};
+ const [type,name]=map[mood]||map.Party;
+ document.getElementById("quizResult").innerHTML=`<b style="font-family:'Cormorant Garamond';font-size:24px;color:#6d2c68">Your Dheeraa match ✦</b><p style="font-size:12px;margin:7px 0 12px;color:#777">For a ${mood.toLowerCase()} mood, we'd start with our <b>${name}</b>.</p><button class="add" onclick="setFilter('${type}')">Explore ${type} →</button>`;
+ document.getElementById("quizResult").classList.add("show");
+}
+function openInsights(){
+ closeSideMenu();
+ document.getElementById("insWish").textContent=wishlist.length;
+ const count=cart.reduce((a,b)=>a+b.qty,0);document.getElementById("insCart").textContent=count;
+ document.getElementById("insQuiz").textContent=quizCount;
+ const bag=cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0);
+ document.getElementById("insBagValue").textContent=money(bag);
+ document.getElementById("insWishRate").textContent=Math.min(100,Math.round(wishlist.length/products.length*100))+"%";
+ document.getElementById("insights").classList.add("show");document.body.style.overflow="hidden";
+}
+function closeInsights(){document.getElementById("insights").classList.remove("show");document.body.style.overflow=""}
+
+
+/* ===== DHEERAA 3.0 INTERACTION ENGINE ===== */
+let communityMembers=Number(localStorage.getItem("dheeraaCommunity")||0);
+
+function vibrate(pattern=[10,20,10]){
+  try{ if("vibrate" in navigator) navigator.vibrate(pattern); }catch(e){}
+}
+function touchFeedback(el){
+  vibrate([8,18,8]);
+  if(el){el.classList.remove("touch-pop");void el.offsetWidth;el.classList.add("touch-pop");}
+}
+document.addEventListener("click",e=>{
+  const target=e.target.closest("button,a,.cat,.product,.service,.feature-card");
+  if(!target)return;
+  touchFeedback(target);
+  const r=document.createElement("span");
+  r.className="tap-ripple";
+  r.style.left=e.clientX+"px";r.style.top=e.clientY+"px";
+  document.body.appendChild(r);setTimeout(()=>r.remove(),600);
+});
+
+/* Fix persistent dark-mode settings state */
+function syncSettings(){
+  document.getElementById("darkSwitch")?.classList.toggle("on",document.body.classList.contains("dark-mode"));
+  document.getElementById("motionSwitch")?.classList.toggle("on",document.body.classList.contains("reduce-motion"));
+  document.getElementById("textSwitch")?.classList.toggle("on",document.body.classList.contains("large-text"));
+}
+const oldToggleDark=toggleDark;
+toggleDark=function(){
+  oldToggleDark();
+  syncSettings();
+  vibrate([15,25,15]);
+};
+syncSettings();
+
+/* Community */
+function joinCommunity(){
+  communityMembers++;
+  localStorage.setItem("dheeraaCommunity",communityMembers);
+  showToast("Welcome to the Dheeraa community ♡");
+  syncDashboard();
+}
+function syncDashboard(){
+  const set=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v};
+  set("insWish",wishlist.length);
+  set("insCart",cart.reduce((a,b)=>a+b.qty,0));
+  set("insQuiz",quizCount);
+  set("insCommunity",communityMembers);
+  const bag=cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0);
+  const saved=wishlist.reduce((s,id)=>s+(products.find(p=>p.id===id)?.price||0),0);
+  set("insBagValue",money(bag));
+  set("insSaved",money(saved));
+  set("insWishRate",Math.min(100,Math.round(wishlist.length/products.length*100))+"%");
+  set("insConversion",cart.length?Math.min(100,Math.round(cart.length/products.length*100))+"%":"0%");
+}
+const oldOpenInsights=openInsights;
+openInsights=function(){
+  oldOpenInsights();
+  syncDashboard();
+  syncSettings();
+};
+
+/* Owner demo export */
+function exportStoreData(){
+  const data={
+    generatedAt:new Date().toISOString(),
+    wishlist,wishlistCount:wishlist.length,
+    cart,cartItems:cart.reduce((a,b)=>a+b.qty,0),
+    quizCount,communityMembers,
+    note:"Frontend demo snapshot — connect a backend for real customer/store analytics."
+  };
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="dheeraa-store-snapshot.json";a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  showToast("Store snapshot exported ✦");
+}
+function clearDemoAnalytics(){
+  if(!confirm("Reset wishlist, bag, quiz and community demo data on this browser?"))return;
+  localStorage.removeItem("dheeraaWish");localStorage.removeItem("dheeraaCart");
+  localStorage.removeItem("dheeraaQuizCount");localStorage.removeItem("dheeraaCommunity");
+  wishlist=[];cart=[];quizCount=0;communityMembers=0;saveCart();render();syncDashboard();
+  showToast("Demo analytics reset");
+}
+
+/* Better hover/touch product behavior */
+document.addEventListener("pointerover",e=>{
+  const card=e.target.closest(".product");
+  if(card && window.matchMedia("(hover:hover)").matches){
+    const pic=card.querySelector(".pic");
+    if(pic)pic.style.setProperty("--hovered","1");
+  }
+});
+
+/* Keep owner dashboard usable after checkout reset */
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)syncSettings()});
+
+
+/* ===== FINAL SHOPPING EXPERIENCE ===== */
+function openWishlist(){
+  closeAll();
+  renderWishlist();
+  document.getElementById("wishlistModal").classList.add("show");
+  document.body.style.overflow="hidden";
+  vibrate([12,20,12]);
+}
+function closeWishlist(){
+  document.getElementById("wishlistModal").classList.remove("show");
+  document.body.style.overflow="";
+}
+function renderWishlist(){
+  const box=document.getElementById("wishlistGrid");
+  if(!wishlist.length){
+    box.innerHTML=`<div class="wish-empty" style="grid-column:1/-1">
+      <div class="heart">♡</div><h2 style="font:600 42px 'Cormorant Garamond';margin:12px">Your wishlist is waiting.</h2>
+      <p style="color:var(--muted2);font-size:13px;max-width:430px;margin:0 auto 22px">Tap the heart on any saree you love. We'll keep your favourites here so choosing becomes easier.</p>
+      <button class="primary" style="max-width:240px" onclick="closeWishlist();document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Explore sarees →</button>
+    </div>`;
+    return;
+  }
+  box.innerHTML=wishlist.map(id=>{
+    const p=products.find(x=>x.id===id); if(!p)return "";
+    return `<article class="wish-card">
+      <div class="wish-photo"><span class="badge">${p.badge}</span>
+        <button class="wish on" style="z-index:5" onclick="toggleWish(${p.id});renderWishlist()">♥</button>
+        <img src="${p.img}" alt="${p.name}" onerror="this.src='${poolImage(p.id)}'">
+      </div>
+      <div class="wish-copy"><div class="kicker">${p.type}</div><h3>${p.name}</h3>
+        <p>${p.desc}</p><div class="price"><strong>${money(p.price)}</strong><span class="old">${money(p.old)}</span></div>
+        <div class="wish-actions"><button style="background:var(--accent);color:#fff" onclick="addCart(${p.id});showToast('Moved to your bag ✨')">Add to bag</button><button style="background:var(--surface2);color:var(--text)" onclick="quick(${p.id})">View</button></div>
+      </div>
+    </article>`;
+  }).join("");
+}
+
+/* Bag upgrade */
+const oldRenderCart=renderCart;
+renderCart=function(){
+  oldRenderCart();
+  const count=cart.reduce((a,b)=>a+b.qty,0);
+  const total=cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0);
+  const label=document.getElementById("bagCountLabel");
+  const msg=document.getElementById("bagMessage");
+  const prog=document.getElementById("shippingProgress");
+  const hint=document.getElementById("shippingHint");
+  if(label)label.textContent=count?`${count} ${count===1?"piece":"pieces"} selected`:"Your selected pieces";
+  if(msg)msg.textContent=count?"Your edit is looking beautiful. One more look before checkout?":"Beautiful choices deserve beautiful packaging.";
+  const pct=Math.min(100,(total/4999)*100);
+  if(prog)prog.style.width=pct+"%";
+  if(hint)hint.textContent=total>=4999?"Free shipping unlocked ✦":"Add "+money(4999-total)+" more for free shipping";
+};
+
+/* More informative cart cards */
+const oldCartRenderer=renderCart;
+renderCart=function(){
+  const box=document.getElementById("cartItems");
+  if(!cart.length){
+    box.innerHTML='<div class="empty">Your bag is beautifully empty.<br><br><span style="font-size:28px">♡</span><br><br>Find a drape that feels like you.</div>';
+    document.getElementById("total").textContent="₹0";
+    const prog=document.getElementById("shippingProgress"); if(prog)prog.style.width="0%";
+    return;
+  }
+  box.innerHTML=cart.map(x=>{
+    const p=products.find(y=>y.id===x.id);
+    return `<div class="cart-item">
+      <img src="${p.img}" onerror="this.src='${poolImage(p.id)}'">
+      <div><div class="kicker" style="margin:0">${p.type}</div><h4>${p.name}</h4>
+      <p>${money(p.price)} · 7-day returns</p>
+      <div class="qty"><button onclick="changeQty(${p.id},-1)">−</button><span>${x.qty}</span><button onclick="changeQty(${p.id},1)">+</button></div></div>
+      <button onclick="removeCart(${p.id})" aria-label="Remove">×</button>
+    </div>`;
+  }).join("");
+  const total=cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0);
+  document.getElementById("total").textContent=money(total);
+  const count=cart.reduce((a,b)=>a+b.qty,0);
+  document.getElementById("bagCountLabel").textContent=`${count} ${count===1?"piece":"pieces"} selected`;
+  document.getElementById("bagMessage").textContent="Your edit is looking beautiful. One more look before checkout?";
+  const pct=Math.min(100,(total/4999)*100);
+  document.getElementById("shippingProgress").style.width=pct+"%";
+  document.getElementById("shippingHint").textContent=total>=4999?"Free shipping unlocked ✦":"Add "+money(4999-total)+" more for free shipping";
+};
+
+/* Open heart from anywhere, while keeping toggle behavior */
+const originalToggleWish=toggleWish;
+toggleWish=function(id){
+  originalToggleWish(id);
+  if(document.getElementById("wishlistModal")?.classList.contains("show")) renderWishlist();
+};
+
+/* Update nav count after opening wishlist */
+const originalShowWishlist=showWishlist;
+showWishlist=function(){openWishlist()};
+
+/* Extra buyer convenience: keyboard shortcut */
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"){
+    closeWishlist();
+    closeDetail();
+    closeInsights();
+  }
+});
+
+</script>
+</body>
+</html>
